@@ -9,6 +9,7 @@ import SellerSignup from "./Signup/SellerSignup";
 import CustomerSignup from "./Signup/CustomerSignup";
 import Home from "./Home";
 import {Routes,Route,BrowserRouter} from "react-router-dom"
+import SellerProfile from "./SellerProfile";
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
 export const UserInfoContext = createContext(null)
@@ -31,6 +32,7 @@ function App() {
         <Route path='/sellerLogin' element={<SellerLogin/>}/>
         <Route path= '/sellerSignup' element={<SellerSignup/>}/>
         <Route path= '/customerSignup' element={<CustomerSignup/>}/>
+        <Route path= '/sellerProfile' element={<SellerProfile/>}/>
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>
