@@ -11,15 +11,18 @@ import Home from "./Home";
 import {Routes,Route,BrowserRouter} from "react-router-dom"
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
+export const UserInfoContext = createContext(null)
 function App() {
   const [user, setUser] = useState(null)
+  const [userInfo, setUserInfo] = useState(null)
   const [typeOfUser, setTypeOfUser] = useState("")
   return (
     <div className="App">
      <BrowserRouter>
+     <UserInfoContext.Provider value ={setUserInfo}>
      <LoginContext.Provider value={setUser}>
       <TypeContext.Provider value={setTypeOfUser}>
-     <NavBar typeOfUser={typeOfUser} user={user}/>
+     <NavBar typeOfUser={typeOfUser} user={user} userInfo={userInfo} />
      <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/signupForms" element={<SignUpPage/>}/>
@@ -31,6 +34,7 @@ function App() {
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>
+     </UserInfoContext.Provider>
      </BrowserRouter>
 
     </div>

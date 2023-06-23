@@ -2,9 +2,10 @@ import React, {useState, useContext} from "react"
 import { useNavigate } from "react-router-dom"
 import { LoginContext } from "../App"
 import { TypeContext } from "../App"
-
+import { UserInfoContext } from "../App"
 function CustomerLogin () {
 const navigate = useNavigate()
+const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
 const setLogin = useContext(LoginContext)
 const [username, setUsername] = useState("")
@@ -23,7 +24,8 @@ function handleSubmit(e) {
         setIsLoading(false);
         if (r.ok) {
             console.log(r)
-            r.json().then(()=> setLogin(true))
+            r.json().then((user)=> setUserInfo(user))
+            setLogin(true)
             setTypeOfUser("customer")
             navigate('/')
         }

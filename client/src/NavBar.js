@@ -3,7 +3,9 @@ import { useContext } from 'react'
 import {Link} from "react-router-dom"
 import { LoginContext } from './App'
 import { TypeContext } from './App'
-function NavBar ({user,typeOfUser}) {
+import { UserInfoContext } from './App'
+function NavBar ({user,typeOfUser,userInfo}) {
+const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
 const setUser = useContext(LoginContext)
     function handleLogoutClick (){
@@ -12,6 +14,7 @@ const setUser = useContext(LoginContext)
             fetch("/customerLogout", {method: "DELETE"}).then((r)=> {
                 if (r.ok) {
                     setUser(null)
+                    setUserInfo(null)
                     setTypeOfUser(null)
                     console.log("logged out as customer");
                 }
@@ -24,6 +27,7 @@ const setUser = useContext(LoginContext)
         else if (typeOfUser === "seller") {
             fetch("/sellerLogout", {method: "DELETE"}).then((r)=> {
                 if (r.ok) {
+                    setUserInfo(null)
                     setUser(null)
                     setTypeOfUser(null)
                     console.log("logged out as seller")
@@ -64,11 +68,14 @@ const setUser = useContext(LoginContext)
             
         </div>
         <button onClick={(()=> console.log(typeOfUser))}>
-            check user
+            check what kind of user 
         </button>
         
         <button onClick={(()=> console.log(user))}>
             check user
+        </button>
+        <button onClick={(()=> console.log(userInfo))}>
+            check userinfo
         </button>
 	</header>
     )

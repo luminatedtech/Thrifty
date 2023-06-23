@@ -2,7 +2,9 @@ import React, {useState,useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../App";
 import { TypeContext } from "../App";
+import { UserInfoContext } from "../App";
 function CustomerSignup () {
+    const setUserInfo = useContext(UserInfoContext)
     const navigate = useNavigate()
     const setTypeOfUser = useContext(TypeContext)
     const setLogin = useContext(LoginContext)
@@ -26,7 +28,8 @@ function CustomerSignup () {
         }).then((r)=> {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then(()=> setLogin(true));
+                r.json().then((user)=> setUserInfo(user) );
+                setLogin(true)
                 setTypeOfUser("customer")
                 navigate('/')
             } else {

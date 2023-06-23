@@ -2,8 +2,10 @@ import React, {useState, useContext} from "react"
 import { useNavigate } from "react-router-dom"
 import { LoginContext } from "../App"
 import { TypeContext } from "../App"
+import { UserInfoContext } from "../App"
 function SellerLogin () {
     const navigate = useNavigate()
+    const setUserInfo = useContext(UserInfoContext)
     const setTypeOfUser = useContext(TypeContext)
     const setLogin = useContext(LoginContext)
     const [username, setUsername] = useState("")
@@ -21,7 +23,8 @@ function SellerLogin () {
         }).then((r)=> {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then(()=> setLogin(true))
+                r.json().then((user)=> setUserInfo(user))
+                setLogin(true)
                 setTypeOfUser("seller")
                 navigate('/')
             }
