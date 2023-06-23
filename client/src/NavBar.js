@@ -1,7 +1,39 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-function NavBar ({typeOfUser,user}) {
 
+import { useContext } from 'react'
+import {Link} from "react-router-dom"
+import { LoginContext } from './App'
+import { TypeContext } from './App'
+function NavBar ({user,typeOfUser}) {
+const setTypeOfUser = useContext(TypeContext)
+const setUser = useContext(LoginContext)
+    function handleLogoutClick (){
+        console.log(user)
+        if (typeOfUser === "customer") {
+            fetch("/customerLogout", {method: "DELETE"}).then((r)=> {
+                if (r.ok) {
+                    setUser(null)
+                    setTypeOfUser(null)
+                    console.log("logged out as customer");
+                }
+                else {
+                    console.log("customer didnt log out")
+                }
+            })
+        }
+        
+        else if (typeOfUser === "seller") {
+            fetch("/sellerLogout", {method: "DELETE"}).then((r)=> {
+                if (r.ok) {
+                    setUser(null)
+                    setTypeOfUser(null)
+                    console.log("logged out as seller")
+                }
+                else {
+                    console.log("customer didnt log out")
+                }
+            })
+        }
+    }
     return (
     <header>
         <div className="logoContainer">
@@ -16,7 +48,7 @@ function NavBar ({typeOfUser,user}) {
             </Link>
             { user ? (
                 <>
-                     <button className='loginButton'> Logout</button>
+                     <button className='loginButton' onClick={handleLogoutClick}> Logout</button>
                 </>
             ) : (
                 <>
