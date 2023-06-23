@@ -1,5 +1,5 @@
 class SellersSerializer < ActiveModel::Serializer
-  attributes :id, :items, :customers
+  attributes :id
   has_many :customers
   has_many :items
 end

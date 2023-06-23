@@ -10,11 +10,11 @@ class SellersController < ApplicationController
     end 
     def index 
         sellers = Seller.all
-        render json: sellers
+        render json: sellers, include: :items
     end 
     def show
         seller = Seller.find_by(id: params[:id])
-        render json: seller
+        render json: seller, include: :items
     end 
 
 private 
