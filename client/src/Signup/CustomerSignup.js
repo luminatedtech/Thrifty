@@ -31,7 +31,7 @@ function CustomerSignup () {
     }
     return (
         <div className="formContainer">
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
             <input
             placeholder="Username"
             type="text"

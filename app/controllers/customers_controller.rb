@@ -3,9 +3,9 @@ class CustomersController < ApplicationController
         customer = Customer.create(customer_params)
         session[:customer_id] = customer.id
         if customer.valid?
-            render json: user, status: :created
+            render json: customer, status: :created
         else 
-            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: customer.errors.full_messages}, status: :unprocessable_entity
         end 
     end 
     def index
