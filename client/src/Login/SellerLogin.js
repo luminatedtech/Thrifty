@@ -1,6 +1,10 @@
 import React, {useState, useContext} from "react"
+import { useNavigate } from "react-router-dom"
 import { LoginContext } from "../App"
+import { TypeContext } from "../App"
 function SellerLogin () {
+    const navigate = useNavigate()
+    const setTypeOfUser = useContext(TypeContext)
     const setLogin = useContext(LoginContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -17,7 +21,9 @@ function SellerLogin () {
         }).then((r)=> {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then((user)=> setLogin(user))
+                r.json().then(()=> setLogin(true))
+                setTypeOfUser("seller")
+                navigate('/')
             }
             else {
                 console.log("didnt work")

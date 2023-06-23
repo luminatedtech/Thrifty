@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-function NavBar () {
+function NavBar ({typeOfUser,user}) {
 
     return (
     <header>
@@ -14,11 +14,30 @@ function NavBar () {
             <Link to='/signupForms'>
             <button className="signupButton">Signup</button>
             </Link>
-            <Link to='/loginForms'>
-            <button className="loginButton"> Login </button>
-            </Link>
+            { user ? (
+                <>
+                     <button className='loginButton'> Logout</button>
+                </>
+            ) : (
+                <>
+                 <Link to='/loginForms'>
+                    <button className="loginButton"> Login </button>
+                </Link>
+               
+                </>
+            )
+
+            }
+            
             
         </div>
+        <button onClick={(()=> console.log(typeOfUser))}>
+            check user
+        </button>
+        
+        <button onClick={(()=> console.log(user))}>
+            check user
+        </button>
 	</header>
     )
 }
