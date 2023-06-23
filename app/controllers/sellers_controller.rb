@@ -1,11 +1,11 @@
 class SellersController < ApplicationController
     def create
-        seller = seller.create(seller_params)
+        seller = Seller.create(seller_params)
         session[:seller_id] = seller.id
         if seller.valid?
-            render json: user, status: :created
+            render json: seller, status: :created
         else 
-            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: seller.errors.full_messages}, status: :unprocessable_entity
         end 
     end 
     def index 

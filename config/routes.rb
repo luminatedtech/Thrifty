@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end 
   resources :customers, :reviews, :sellers, :sessions,:items, only: [:create,:show,:destroy,:update,:index]
   get '/sellers/:seller_id/items', to: 'items#index'
-  post '/sellers', to: 'sellers#create'
   post '/customerLogin', to: 'customer_sessions#create'
   delete '/customerLogout', to: 'customer_sessions#destroy'
   post '/sellerLogin', to: 'sellers_sessions#create'

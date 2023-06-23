@@ -15,8 +15,8 @@ function SellerSignup () {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username,
-                password,
+                username: username,
+                password: password,
                 password_confirmation: passwordConfirmation
             }),
         }).then((r)=> {
@@ -29,8 +29,8 @@ function SellerSignup () {
         })
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="formContainer">
+            <form className="form" onSubmit={handleSubmit}>
             <input
             placeholder="Username"
             type="text"

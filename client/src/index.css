@@ -91,4 +91,23 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   width: 15rem;
+  position: initial;
+}
+
+.formContainer{
+  margin-top: 5rem;
+ 
+}
+
+.formContainer input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  border: 0;
+  border-radius: 5px;
+} 
+
+.form {
+  top: 200px;
+  position: relative;
 }
