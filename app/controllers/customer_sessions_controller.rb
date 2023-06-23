@@ -5,7 +5,7 @@ class CustomerSessionsController < ApplicationController
             session[:customer_id] = customer.id 
             render json: customer, status: :created
         else 
-            render json: {errors: ["Invalid username or password"]}
+            render json: {errors: ["Invalid username or password"]}, status: :unauthorized
         end 
     end 
     def destroy
