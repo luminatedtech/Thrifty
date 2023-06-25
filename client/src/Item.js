@@ -1,7 +1,32 @@
-import React from "react";
-
-function Item ({category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
-    console.log(seller)
+import React, {useState,useContext} from "react";
+import { SellerContext } from "./Context/SellerContext";
+function Item ({userId,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
+    console.log(userId)
+    const [errors,setErrors] = useState([])
+    const {sellers,setSellers} = useContext(SellerContext)
+    function onDeleteItem (){
+      fetch(`/items/${id}`,{
+        method: "DELETE"
+      })
+      .then((r)=> {
+        if (r.ok) {
+          const deletedItem = item
+          {sellers.map((seller)=> {
+            if (seller.id === userId ) {
+              const updatedItems = seller.items.filter(item => item.id !== deletedItem.id)
+              seller.items = updatedItems
+              setSellers([...sellers])
+              console.log("deleted")
+            }
+            else {
+              return sellers
+            }
+          })}
+        } else {
+          r.json().then((err)=> setErrors(err.errors))
+        }
+      })
+    }
     return (
         <>
         <div className="item">
@@ -17,6 +42,16 @@ function Item ({category,price,condition,wearer,name,seller,photo,brand,size,ind
             <p><b>For</b> {wearer}</p>
             
           </div>
+          <button className="deleteButton" onClick={onDeleteItem}>
+            Delete Item
+          </button>
+          {/* {errors.length > 0 && (
+                <ul style={{ color: "red" }}>
+                {errors.map((error) => (
+                 <li key={error}>{error}</li>
+                ))}
+              </ul>
+            )} */}
         </div>
      
     </>

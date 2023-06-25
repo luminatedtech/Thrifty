@@ -176,3 +176,13 @@ button:hover {
 
 }
 
+.deleteButton {
+  background-color: #D73E3E;
+  border-radius: 8px;
+  padding: .25rem;
+  border: none;
+  max-width: 3rem;
+  max-height: 3rem;
+  align-self: center;
+}
+

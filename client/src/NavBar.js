@@ -29,10 +29,11 @@ const setUser = useContext(LoginContext)
         else if (typeOfUser === "seller") {
             fetch("/sellerLogout", {method: "DELETE"}).then((r)=> {
                 if (r.ok) {
+                    navigate('/')
                     setUserInfo(false)
                     setUser(null)
                     setTypeOfUser(null)
-                    navigate('/')
+                    
                     console.log("logged out as seller")
                 }
                 else {

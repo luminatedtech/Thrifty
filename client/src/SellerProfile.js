@@ -28,7 +28,7 @@ console.log(items)
                 <button> Add an Item </button>
             </Link>
            
-            {<ItemList items ={items}/>}
+            {<ItemList userId ={user.id} items ={items}/>}
            
             
         </div>
