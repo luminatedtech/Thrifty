@@ -16,7 +16,6 @@ function ListedItem ({item,category,price,condition,wearer,name,seller,photo,bra
             <p><b>Size:</b> {size}</p>
             <p><b>Brand:</b> {brand}</p>
             <p><b>For</b> {wearer}</p>
-            
           </div>
         </div>
      
