@@ -71,23 +71,26 @@ function ItemForm () {
             </div>
             <div>
                 <label> Category </label>
-                <select name="selectedCategory">
+                <select name="selectedCategory"
+                value={category}
+                onChange={(e)=>setCategory(e.target.value)}>
                     <option value="Outerwear"> Outerwear</option>
                     <option value="Shirts"> Shirts</option>
                     <option value="Bottoms"> Bottoms</option>
-                    onChange={(e)=>setCategory(e.target.value)}
+                    
                 </select>
             </div>
             <div>
                 <label> Size </label>
-                <select name="selectedSize">
+                <select name="selectedSize"
+                 value={size}
+                  onChange={(e)=>setSize(e.target.value)}>
                     <option value="XS"> XS</option>
                     <option value="S"> S</option>
                     <option value="M"> M</option>
                     <option value="L"> L</option>
                     <option value="XL"> XL</option>
                     <option value="XXL"> XXL</option>
-                    onChange={(e)=>setSize(e.target.value)}
                 </select>
             </div>
             <div>
@@ -108,21 +111,25 @@ function ItemForm () {
             </div>
             <div>
                 <label> Condition </label>
-                <select name="selectedCondition">
+                <select name="selectedCondition"
+                  value={condition}
+                 onChange={(e)=>setCondition(e.target.value)}>
                     <option value="New"> New</option>
                     <option value="Relatively New"> Relatively New</option>
                     <option value="Worn"> Worn</option>
                     <option value="Well Worn"> Well Worn</option>
-                    onChange={(e)=>setCondition(e.target.value)}
+                   
                 </select>
             </div>
             
             <div>
                 <label> Wearer</label>
-                <select name="selectedWearer">
+                <select name="selectedWearer"
+                value={wearer}
+                onChange={(e)=>setWearer(e.target.value)}>
                     <option value="Mens"> Mens</option>
                     <option value="Womens"> Womens</option>
-                    onChange={(e)=>setWearer(e.target.value)}
+                    
                 </select>
             </div>
      
