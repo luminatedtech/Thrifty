@@ -1,8 +1,11 @@
 import React, {useState,useContext} from "react";
+import ItemEditForm from "./ItemEditForm";
 import { SellerContext } from "./Context/SellerContext";
+
 function Item ({userId,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
     console.log(userId)
     const [errors,setErrors] = useState([])
+    const [showEdit, setShowEdit] = useState(true)
     const {sellers,setSellers} = useContext(SellerContext)
     function onDeleteItem (){
       fetch(`/items/${id}`,{
@@ -42,6 +45,23 @@ function Item ({userId,item,category,price,condition,wearer,name,seller,photo,br
             <p><b>For</b> {wearer}</p>
             
           </div>
+          {showEdit ? (
+        <>
+          <button className ="editButton" onClick={()=> setShowEdit(false)}>
+            <img alt="edit" src="edit.png" />
+          </button>
+        </>
+      ) : (
+        <>
+          <ItemEditForm userId={userId} setShowEdit={setShowEdit} oldName={name} oldCategory={category} oldPrice = {price} oldWearer = {wearer} oldCondition = {condition} oldSize = {size} oldBrand = {brand} oldPhoto ={photo} id={id}/>
+          <p>
+            Done?
+            <button onClick={()=>setShowEdit(true)}>
+              Exit
+            </button>
+          </p>
+        </>
+      )}
           <button className="deleteButton" onClick={onDeleteItem}>
             Delete Item
           </button>
