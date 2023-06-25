@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import {Link} from "react-router-dom"
-import ItemList from "./ItemList"
-function SellerProfile ({user}) {
+import SellerItemList from "./SellerItemList"
+function SellerDashboard ({user}) {
     
 const [items,setItems] = useState([])
 const [reviews,setReviews]=useState([])
@@ -28,10 +28,10 @@ console.log(items)
                 <button> Add an Item </button>
             </Link>
            
-            {<ItemList userId ={user.id} items ={items}/>}
+            {<SellerItemList userId ={user.id} items ={items}/>}
            
             
         </div>
     )
 }
-export default SellerProfile 
+export default SellerDashboard

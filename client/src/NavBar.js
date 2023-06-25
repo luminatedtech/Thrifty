@@ -78,7 +78,7 @@ const setUser = useContext(LoginContext)
             
         </div>
         { typeOfUser === "seller" &&
-            <Link to="/sellerProfile"> 
+            <Link to="/sellerDashboard"> 
             <button onClick={()=>console.log("i was clicked")}>
                 Seller Dashboard
             </button>

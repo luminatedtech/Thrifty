@@ -1,6 +1,6 @@
 import React, { useContext,useState } from "react";
 import { useParams,useNavigate } from "react-router-dom";
-import { SellerContext } from "./Context/SellerContext";
+import { SellerContext } from "../Context/SellerContext";
 function ItemForm () {
     const {setSellers,sellers} = useContext(SellerContext)
     const {sellerId} = useParams()

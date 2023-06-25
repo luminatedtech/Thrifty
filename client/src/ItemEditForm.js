@@ -1,5 +1,4 @@
 import React, {useContext, useState} from "react"
-import Item from "./Item"
 import { SellerContext } from "./Context/SellerContext"
 function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCategory, oldBrand, oldPhoto,id,oldName,setShowEdit}) {
     const {setSellers} = useContext(SellerContext)

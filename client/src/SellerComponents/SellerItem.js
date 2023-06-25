@@ -1,8 +1,8 @@
 import React, {useState,useContext} from "react";
-import ItemEditForm from "./ItemEditForm";
-import { SellerContext } from "./Context/SellerContext";
+import ItemEditForm from "../ItemEditForm";
+import { SellerContext } from "../Context/SellerContext";
 
-function Item ({userId,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
+function SellerItem ({userId,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
     console.log(userId)
     const [errors,setErrors] = useState([])
     const [showEdit, setShowEdit] = useState(true)
@@ -78,4 +78,4 @@ function Item ({userId,item,category,price,condition,wearer,name,seller,photo,br
     )
 }
 
-export default Item 
+export default SellerItem 
