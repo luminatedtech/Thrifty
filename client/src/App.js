@@ -10,6 +10,8 @@ import SellerSignup from "./Signup/SellerSignup";
 import CustomerSignup from "./Signup/CustomerSignup";
 import ItemForm from "./ItemForm";
 import Home from "./Home";
+import MensListing from "./MensListing";
+import WomensListing from "./WomensListing";
 import { SellerProvider } from "./Context/SellerContext";
 import SellerProfile from "./SellerProfile";
 export const LoginContext = createContext(null)
@@ -49,6 +51,8 @@ function App() {
         <Route path= '/sellerSignup' element={<SellerSignup/>}/>
         <Route path= '/customerSignup' element={<CustomerSignup/>}/>
         <Route path= '/sellerProfile' element={<SellerProfile user={user}/>}/>
+        <Route path='/mensListing' element ={<MensListing/>}/>
+        <Route path= '/womensListing' element ={<WomensListing/>}/>
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>

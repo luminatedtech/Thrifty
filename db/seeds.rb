@@ -15,3 +15,12 @@ Item.create(price: 10, size: "Large", condition: "Relatively New", wearer: "Wome
 Review.create(customer_id: 1, seller_id: 1, rating: 1, title: "Don't buy from this guy", comment: "This guy scammed me")
 Review.create(customer_id: 2, seller_id: 2, rating: 5, title: "Reliable and friendly", comment: "No problems at all with the transaction")
 Review.create(customer_id: 3, seller_id: 3, rating: 5, title: "Was very fast and responsive", comment: "Got what I asked for")
+
+
+Item.create(price: 30, size: "M", condition: "New", wearer: "Men", brand: "Nike", name: "Shortsleeve White T", seller_id: 1, photo: "sweater.jpg", category:"Shirts")
+
+Item.create(price: 40, size: "L", condition: "Well-worn", wearer: "Men", brand: "Adidas", name: "Vintage Leather Jacket", seller_id: 2, photo: "sweater.jpg", category:"Outerwear")
+
+Item.create(price: 10, size: "S", condition: "Worn", wearer: "Women", brand: "Uniqlo", name: "One Piece Collection Shirt", seller_id: 3, photo: "sweater.jpg", category:"Shirts")
+
+Item.create(price: 25, size: "XL", condition: "Well-worn", wearer: "Women", brand: "Gap", name: "Jean Jacket", seller_id: 2, photo: "sweater.jpg", category:"Outerwear")

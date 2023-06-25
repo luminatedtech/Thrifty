@@ -54,6 +54,12 @@ const setUser = useContext(LoginContext)
             <Link to='/signupForms'>
             <button className="signupButton">Signup</button>
             </Link>
+            <Link to='/mensListing'>
+            <button className="signupButton">Mensware</button>
+            </Link>
+            <Link to='/womensListing'>
+            <button className="signupButton">Womensware</button>
+            </Link>
             { userInfo ? (
                 <>
                      <button className='loginButton' onClick={handleLogoutClick}> Logout</button>
@@ -78,16 +84,6 @@ const setUser = useContext(LoginContext)
             </button>
             </Link>
         }
-        <button onClick={(()=> console.log(typeOfUser))}>
-            check what kind of user 
-        </button>
-        
-        <button onClick={(()=> console.log(user))}>
-            check user
-        </button>
-        <button onClick={(()=> console.log(userInfo))}>
-            check userinfo
-        </button>
 	</header>
     )
 }

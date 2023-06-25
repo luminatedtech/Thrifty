@@ -39,7 +39,16 @@ def show
     item = Item.find_by(id: params[:id])
     render json: item
 end 
-
+def mens_items
+    items = Item.all
+    filtered_items = items.select{|item| item.wearer == "Men"}
+    render json: filtered_items, include: :seller
+end 
+def womens_items
+    items = Item.all
+    filtered_items = items.select{|item| item.wearer == "Women"}
+    render json: filtered_items, include: :seller
+end 
 private 
 def item_params
     params.permit(:category,:price,:size,:condition,:photo,:brand,:name,:seller_id,:wearer)

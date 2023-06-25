@@ -129,8 +129,8 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
                 <select name="selectedWearer"
                 value={wearer}
                 onChange={(e)=>setWearer(e.target.value)}>
-                    <option value="Mens"> Mens</option>
-                    <option value="Womens"> Womens</option>
+                    <option value="Men"> Mens</option>
+                    <option value="Women"> Womens</option>
                     
                 </select>
             </div>
