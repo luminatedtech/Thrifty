@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import {Link} from "react-router-dom"
 import ItemList from "./ItemList"
 function SellerProfile ({user}) {
     
@@ -23,6 +24,10 @@ console.log(items)
             <h1>
                 This is a seller profile
             </h1>
+            <Link to = {`/itemForm/${user.id}`}>
+                <button> Add an Item </button>
+            </Link>
+           
             {<ItemList items ={items}/>}
            
             

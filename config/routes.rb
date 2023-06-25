@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/sellers/:seller_id/reviews', to: 'reviews#index'
   post '/customerSignup', to: 'customers#create'
   post '/sellerSignup', to: 'sellers#create'
+  post '/items', to: "items#create"
   get '/me', to: 'users#show'
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

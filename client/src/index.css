@@ -162,3 +162,17 @@ button:hover {
 .itemInfo p {
   margin-top: .25rem;
 }
+.itemFormContainer input {
+  display:flex;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  border: 0;
+  border-radius: 5px;
+} 
+
+.itemFormContainer {
+  position: absolute;
+  margin-top: 200px;
+
+}
+

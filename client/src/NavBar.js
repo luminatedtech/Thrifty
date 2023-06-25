@@ -1,10 +1,11 @@
 
 import { useContext } from 'react'
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 import { LoginContext } from './App'
 import { TypeContext } from './App'
 import { UserInfoContext } from './App'
 function NavBar ({user,typeOfUser,userInfo}) {
+const navigate = useNavigate()
 const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
 const setUser = useContext(LoginContext)
@@ -16,6 +17,7 @@ const setUser = useContext(LoginContext)
                     setUser(null)
                     setUserInfo(false)
                     setTypeOfUser(null)
+                    navigate('/')
                     console.log("logged out as customer");
                 }
                 else {
@@ -30,6 +32,7 @@ const setUser = useContext(LoginContext)
                     setUserInfo(false)
                     setUser(null)
                     setTypeOfUser(null)
+                    navigate('/')
                     console.log("logged out as seller")
                 }
                 else {
