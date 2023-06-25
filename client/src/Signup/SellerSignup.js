@@ -28,8 +28,8 @@ function SellerSignup () {
         }).then((r)=> {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then((user)=> setUserInfo(user) );
-                setLogin(true)
+                r.json().then((user)=> setLogin(user) );
+                setUserInfo(true)
                 setTypeOfUser("seller")
                 navigate('/')
             } else {

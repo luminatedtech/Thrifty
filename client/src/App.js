@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react"
+import React, {useState, createContext,useEffect} from "react"
 import './App.css';
 import NavBar from './NavBar';
 import SignUpPage from './Signup/SignUpPage';
@@ -17,6 +17,18 @@ function App() {
   const [user, setUser] = useState(null)
   const [userInfo, setUserInfo] = useState(null)
   const [typeOfUser, setTypeOfUser] = useState("")
+  // useEffect(() => {
+  //   fetch('/me').then((r)=> {
+      
+  //     if (r.ok) {
+  //       console.log(r)
+  //       r.json().then((user) => console.log(user))
+  //       setUserInfo(true)
+
+        
+  //     }
+  //   })
+  // }, [])
   return (
     <div className="App">
      <BrowserRouter>
@@ -32,7 +44,7 @@ function App() {
         <Route path='/sellerLogin' element={<SellerLogin/>}/>
         <Route path= '/sellerSignup' element={<SellerSignup/>}/>
         <Route path= '/customerSignup' element={<CustomerSignup/>}/>
-        <Route path= '/sellerProfile' element={<SellerProfile/>}/>
+        <Route path= '/sellerProfile' element={<SellerProfile user={user}/>}/>
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>

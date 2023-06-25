@@ -24,8 +24,8 @@ function handleSubmit(e) {
         setIsLoading(false);
         if (r.ok) {
             console.log(r)
-            r.json().then((user)=> setUserInfo(user))
-            setLogin(true)
+            r.json().then((user)=> setLogin(user))
+            setUserInfo(true)
             setTypeOfUser("customer")
             navigate('/')
         }

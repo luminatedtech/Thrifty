@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :sellers, only: [:show] do 
+  resources :sellers, only: [:show,:index] do 
     resources :reviews, only: [:show,:index]
-    resource :items, only: [:show,:index]
+  end 
+  resources :sellers, only: [:show,:index] do 
+    resources :items, only: [:show,:index]
   end 
   resources :customers, :reviews, :sellers, :sessions,:items, only: [:create,:show,:destroy,:update,:index]
   get '/sellers/:seller_id/items', to: 'items#index'
@@ -14,5 +16,6 @@ Rails.application.routes.draw do
   get '/sellers/:seller_id/reviews', to: 'reviews#index'
   post '/customerSignup', to: 'customers#create'
   post '/sellerSignup', to: 'sellers#create'
+  get '/me', to: 'users#show'
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

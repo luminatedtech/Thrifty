@@ -14,7 +14,7 @@ const setUser = useContext(LoginContext)
             fetch("/customerLogout", {method: "DELETE"}).then((r)=> {
                 if (r.ok) {
                     setUser(null)
-                    setUserInfo(null)
+                    setUserInfo(false)
                     setTypeOfUser(null)
                     console.log("logged out as customer");
                 }
@@ -27,13 +27,13 @@ const setUser = useContext(LoginContext)
         else if (typeOfUser === "seller") {
             fetch("/sellerLogout", {method: "DELETE"}).then((r)=> {
                 if (r.ok) {
-                    setUserInfo(null)
+                    setUserInfo(false)
                     setUser(null)
                     setTypeOfUser(null)
                     console.log("logged out as seller")
                 }
                 else {
-                    console.log("customer didnt log out")
+                    console.log("seller didnt log out")
                 }
             })
         }
@@ -50,7 +50,7 @@ const setUser = useContext(LoginContext)
             <Link to='/signupForms'>
             <button className="signupButton">Signup</button>
             </Link>
-            { user ? (
+            { userInfo ? (
                 <>
                      <button className='loginButton' onClick={handleLogoutClick}> Logout</button>
                 </>

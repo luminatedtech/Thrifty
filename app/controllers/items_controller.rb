@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     end 
     def index
         if params[:seller_id]
-            seller = Seller.find_by(id: params[:seller_id])
+            seller = Seller.find(params[:seller_id])
             items = seller.items
         else 
             items = Item.all
