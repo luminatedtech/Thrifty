@@ -13,8 +13,8 @@ Item.create(price: 20, size: "Medium", condition: "Well-worn", wearer: "Male", b
 Item.create(price: 50, size: "Large", condition: "New", wearer: "Male", brand: "Adidas", name: "Adidas Shirt", seller_id: 1, photo: "sweater.jpg", category:"Top")
 Item.create(price: 10, size: "Large", condition: "Relatively New", wearer: "Women", brand: "Reebok", name: "Reebok Orange Jacket", seller_id: 1, photo: "sweater.jpg", category:"Outerwear")
 Review.create(customer_id: 1, seller_id: 1, rating: 1, title: "Don't buy from this guy", comment: "This guy scammed me")
-Review.create(customer_id: 2, seller_id: 2, rating: 5, title: "Reliable and friendly", comment: "No problems at all with the transaction")
-Review.create(customer_id: 3, seller_id: 3, rating: 5, title: "Was very fast and responsive", comment: "Got what I asked for")
+Review.create(customer_id: 1, seller_id: 1, rating: 5, title: "Reliable and friendly", comment: "No problems at all with the transaction")
+Review.create(customer_id: 1, seller_id: 1, rating: 5, title: "Was very fast and responsive", comment: "Got what I asked for")
 
 
 Item.create(price: 30, size: "M", condition: "New", wearer: "Men", brand: "Nike", name: "Shortsleeve White T", seller_id: 1, photo: "sweater.jpg", category:"Shirts")
