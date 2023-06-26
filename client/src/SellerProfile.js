@@ -1,14 +1,18 @@
 import React,{useContext} from "react";
 import { ItemContext } from "./Context/ItemContext";
+import { ReviewContext } from "./Context/ReviewContext";
 import ListedItem from "./ListedItem";
 import {useParams} from "react-router-dom"
 function SellerProfile () {
     const sellerId = useParams()
+    const {reviews,setReviews} = useContext(ReviewContext)
     const {items} = useContext(ItemContext)
-    console.log(items)
+    
     console.log(sellerId.seller_id)
 const sellerItems = items.filter((item)=>item.seller_id == sellerId.seller_id)
+const sellerReviews = reviews.filter((review)=> review.seller_id == sellerId.seller_id)
 console.log (sellerItems)
+console.log(sellerReviews)
 return (
     <div>
         <h1>This is a seller profile</h1>
