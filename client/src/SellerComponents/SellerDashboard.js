@@ -1,17 +1,11 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext} from "react"
 import {Link} from "react-router-dom"
+import { ItemContext } from "../Context/ItemContext"
 import SellerItemList from "./SellerItemList"
 function SellerDashboard ({user}) {
-    
-const [items,setItems] = useState([])
-const [reviews,setReviews]=useState([])
-useEffect(()=> {
-    console.log({user})
-    fetch(`/sellers/${user.id}/items`)
-    .then((r)=>r.json())
-    .then((items)=>setItems(items))
-},[])
-console.log(items)
+const {items} = useContext(ItemContext)
+const userItems = items.filter((item)=> item.seller_id === user.id)
+console.log(userItems)
     return (
         
         <div>
@@ -28,7 +22,7 @@ console.log(items)
                 <button> Add an Item </button>
             </Link>
            
-            {<SellerItemList userId ={user.id} items ={items}/>}
+            {<SellerItemList userId ={user.id} items ={userItems}/>}
            
             
         </div>

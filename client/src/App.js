@@ -12,8 +12,10 @@ import ItemForm from "./SellerComponents/ItemForm";
 import Home from "./Home";
 import MensListing from "./MensListing";
 import WomensListing from "./WomensListing";
+import { ItemProvider } from "./Context/ItemContext";
 import { SellerProvider } from "./Context/SellerContext"
 import SellerDashboard from "./SellerComponents/SellerDashboard";
+import SellerProfile from "./SellerProfile";
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
 export const UserInfoContext = createContext(null)
@@ -36,6 +38,7 @@ function App() {
   return (
     <div className="App">
      <BrowserRouter>
+     <ItemProvider>
      <SellerProvider>
      <UserInfoContext.Provider value ={setUserInfo}>
      <LoginContext.Provider value={setUser}>
@@ -53,11 +56,13 @@ function App() {
         <Route path= '/sellerDashboard' element={<SellerDashboard user={user}/>}/>
         <Route path='/mensListing' element ={<MensListing/>}/>
         <Route path= '/womensListing' element ={<WomensListing/>}/>
+        <Route path= '/sellerProfile/:seller_id' element={<SellerProfile/>}/>
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>
      </UserInfoContext.Provider>
      </SellerProvider>
+     </ItemProvider>
      </BrowserRouter>
 
     </div>
