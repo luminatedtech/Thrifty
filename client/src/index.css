@@ -197,3 +197,12 @@ button:hover {
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
   transition: 0.4s;
 }
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  padding: 1rem 3rem 1rem 3rem;
+  background-color: #ECECEC;
+  width: 100%;
+}
