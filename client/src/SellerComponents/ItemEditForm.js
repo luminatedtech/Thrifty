@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react"
-import { SellerContext } from "./Context/SellerContext"
+import { SellerContext } from "../Context/SellerContext"
 function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCategory, oldBrand, oldPhoto,id,oldName,setShowEdit}) {
     const {setSellers} = useContext(SellerContext)
     const [condition,setCondition] = useState(oldCondition)
@@ -128,8 +128,8 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
                 <select name="selectedWearer"
                 value={wearer}
                 onChange={(e)=>setWearer(e.target.value)}>
-                    <option value="Men"> Mens</option>
-                    <option value="Women"> Womens</option>
+                    <option value="Men"> Men</option>
+                    <option value="Women"> Women</option>
                     
                 </select>
             </div>

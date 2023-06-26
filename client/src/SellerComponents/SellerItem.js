@@ -1,5 +1,5 @@
 import React, {useState,useContext} from "react";
-import ItemEditForm from "../ItemEditForm";
+import ItemEditForm from "./ItemEditForm";
 import { SellerContext } from "../Context/SellerContext";
 
 function SellerItem ({userId,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {

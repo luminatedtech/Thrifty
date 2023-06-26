@@ -14,6 +14,7 @@ import MensListing from "./MensListing";
 import WomensListing from "./WomensListing";
 import { ItemProvider } from "./Context/ItemContext";
 import { SellerProvider } from "./Context/SellerContext"
+import { ReviewProvider } from "./Context/ReviewContext";
 import SellerDashboard from "./SellerComponents/SellerDashboard";
 import SellerProfile from "./SellerProfile";
 export const LoginContext = createContext(null)
@@ -38,6 +39,7 @@ function App() {
   return (
     <div className="App">
      <BrowserRouter>
+     <ReviewProvider>
      <ItemProvider>
      <SellerProvider>
      <UserInfoContext.Provider value ={setUserInfo}>
@@ -63,6 +65,7 @@ function App() {
      </UserInfoContext.Provider>
      </SellerProvider>
      </ItemProvider>
+     </ReviewProvider>
      </BrowserRouter>
 
     </div>

@@ -8,7 +8,7 @@ function MensListing () {
         .then((r)=> r.json())
         .then((items)=>setMensItems(items))
     },[])
-
+console.log(mensItems)
     
     return (
         <div>

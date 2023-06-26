@@ -6,7 +6,7 @@ function WomensListing () {
         fetch('/womensItems')
         .then((r)=>r.json())
         .then((items)=>setWomensItems(items))
-    })
+    },[])
     return (
         <div>
             <h1>Womens Listing</h1>
