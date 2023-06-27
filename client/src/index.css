@@ -206,3 +206,31 @@ button:hover {
   background-color: #ECECEC;
   width: 100%;
 }
+
+.reviewButtonsContainer {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  max-width: 20rem;
+}
+
+.reviewFormContainer {
+  position: absolute;
+  margin-top: 200px;
+
+}
+.reviewFormContainer input {
+  display:flex;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  border: 0;
+  border-radius: 5px;
+} 
+
+.reviewForm {
+  display: flex;
+  border-color: #ebebeb;
+  position: fixed;
+  margin-top: 100px;
+   
+}

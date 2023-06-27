@@ -17,6 +17,7 @@ import { SellerProvider } from "./Context/SellerContext"
 import { ReviewProvider } from "./Context/ReviewContext";
 import SellerDashboard from "./SellerComponents/SellerDashboard";
 import SellerProfile from "./SellerProfile";
+import ReviewForm from "./ReviewForm";
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
 export const UserInfoContext = createContext(null)
@@ -43,7 +44,7 @@ function App() {
      <ItemProvider>
      <SellerProvider>
      <UserInfoContext.Provider value ={setUserInfo}>
-     <LoginContext.Provider value={setUser}>
+     <LoginContext.Provider value={{setUser,user}}>
       <TypeContext.Provider value={setTypeOfUser}>
      <NavBar typeOfUser={typeOfUser} user={user} userInfo={userInfo} />
      <Routes>
@@ -59,6 +60,7 @@ function App() {
         <Route path='/mensListing' element ={<MensListing/>}/>
         <Route path= '/womensListing' element ={<WomensListing/>}/>
         <Route path= '/sellerProfile/:seller_id' element={<SellerProfile/>}/>
+        <Route path= '/reviewForm/:seller_id' element={<ReviewForm/>}/>
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>

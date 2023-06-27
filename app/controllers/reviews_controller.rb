@@ -1,11 +1,12 @@
 class ReviewsController < ApplicationController
+
     def create
-       
-        review = @customer.reviews.create(review_params)
+        customer = Customer.find_by(id: session[:customer_id])
+        review = customer.reviews.create(review_params)
         if review.valid? && session[:customer_id] = review.customer.id
             render json: review, status: :created
         else 
-            render json: {errors: ["Test error"]}
+            render json: {errors: ["Test error"]}, status: :unprocessable_entity
         end 
     end 
     def index

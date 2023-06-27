@@ -7,7 +7,7 @@ function CustomerSignup () {
     const setUserInfo = useContext(UserInfoContext)
     const navigate = useNavigate()
     const setTypeOfUser = useContext(TypeContext)
-    const setLogin = useContext(LoginContext)
+    const {setUser} = useContext(LoginContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
@@ -28,7 +28,7 @@ function CustomerSignup () {
         }).then((r)=> {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then((user)=> setLogin(user) );
+                r.json().then((user)=> setUser(user) );
                 setUserInfo(true)
                 setTypeOfUser("customer")
                 navigate('/')

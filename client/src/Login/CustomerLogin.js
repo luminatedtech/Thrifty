@@ -7,7 +7,7 @@ function CustomerLogin () {
 const navigate = useNavigate()
 const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
-const setLogin = useContext(LoginContext)
+const {setUser} = useContext(LoginContext)
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
 const [isLoading, setIsLoading] = useState(false)
@@ -24,7 +24,7 @@ function handleSubmit(e) {
         setIsLoading(false);
         if (r.ok) {
             console.log(r)
-            r.json().then((user)=> setLogin(user))
+            r.json().then((user)=> setUser(user))
             setUserInfo(true)
             setTypeOfUser("customer")
             navigate('/')

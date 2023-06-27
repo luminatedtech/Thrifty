@@ -8,7 +8,7 @@ function NavBar ({user,typeOfUser,userInfo}) {
 const navigate = useNavigate()
 const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
-const setUser = useContext(LoginContext)
+const {setUser} = useContext(LoginContext)
     function handleLogoutClick (){
         console.log(user)
         if (typeOfUser === "customer") {
