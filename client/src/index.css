@@ -234,3 +234,14 @@ button:hover {
   margin-top: 100px;
    
 }
+.Filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Filter select,
+.Filter input {
+  width: 45%;
+  margin: 1rem 0;
+  background: var(--cyan);
+}
