@@ -18,28 +18,35 @@ import { ReviewProvider } from "./Context/ReviewContext";
 import SellerDashboard from "./SellerComponents/SellerDashboard";
 import SellerProfile from "./SellerProfile";
 import ReviewForm from "./ReviewForm";
+import ShoppingCart from "./ShoppingCart";
+import { CartContext, CartProvider } from "./Context/CartContext";
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
 export const UserInfoContext = createContext(null)
 function App() {
   const [user, setUser] = useState(null)
-  const [userInfo, setUserInfo] = useState(null)
+  const [userInfo, setUserInfo] = useState(false)
   const [typeOfUser, setTypeOfUser] = useState("")
-  // useEffect(() => {
-  //   fetch('/me').then((r)=> {
+  useEffect(() => {
+    fetch('/me').then((r)=> {
       
-  //     if (r.ok) {
-  //       console.log(r)
-  //       r.json().then((user) => console.log(user))
-  //       setUserInfo(true)
+      if (r.ok) {
+     
+        r.json().then((user) => {
+          setUser(user)
+          setTypeOfUser(user.kind)
+      
+          console.log(typeOfUser)
+        })
 
         
-  //     }
-  //   })
-  // }, [])
+      }
+    })
+  }, [])
   return (
     <div className="App">
      <BrowserRouter>
+     <CartProvider>
      <ReviewProvider>
      <ItemProvider>
      <SellerProvider>
@@ -61,6 +68,7 @@ function App() {
         <Route path= '/womensListing' element ={<WomensListing/>}/>
         <Route path= '/sellerProfile/:seller_id' element={<SellerProfile/>}/>
         <Route path= '/reviewForm/:seller_id' element={<ReviewForm/>}/>
+        <Route path= '/shoppingCart' element={<ShoppingCart/>}/>
      </Routes>
      </TypeContext.Provider>
      </LoginContext.Provider>
@@ -68,6 +76,7 @@ function App() {
      </SellerProvider>
      </ItemProvider>
      </ReviewProvider>
+     </CartProvider>
      </BrowserRouter>
 
     </div>

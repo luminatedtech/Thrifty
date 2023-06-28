@@ -4,8 +4,10 @@ import {Link,useNavigate} from "react-router-dom"
 import { LoginContext } from './App'
 import { TypeContext } from './App'
 import { UserInfoContext } from './App'
+import { CartContext } from './Context/CartContext'
 function NavBar ({user,typeOfUser,userInfo}) {
 const navigate = useNavigate()
+const {cartItems} = useContext(CartContext)
 const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
 const {setUser} = useContext(LoginContext)
@@ -60,6 +62,9 @@ const {setUser} = useContext(LoginContext)
             <Link to='/womensListing'>
             <button className="signupButton">Womensware</button>
             </Link>
+            <Link to='/shoppingCart'>
+                <button> Shopping Cart {cartItems.length} </button>
+            </Link>
             { userInfo ? (
                 <>
                      <button className='loginButton' onClick={handleLogoutClick}> Logout</button>
@@ -84,6 +89,10 @@ const {setUser} = useContext(LoginContext)
             </button>
             </Link>
         }
+        <button onClick={()=>console.log(user)}> Check User</button>
+        <button onClick={()=>console.log(userInfo)}> Check User Info</button>
+        <button onClick={()=>console.log(typeOfUser)}> Check Type of User</button>
+
 	</header>
     )
 }
