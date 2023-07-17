@@ -35,9 +35,12 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
             setIsLoading(false)
             if (r.ok){
                 r.json().then((updatedItem)=>{
+                    console.log(updatedItem)
                     setSellers((prevSellers)=> {
                         const sellerIndex = prevSellers.findIndex((seller)=> seller.id === userId)
                        prevSellers[sellerIndex].items = prevSellers[sellerIndex].items.map((item)=> {
+                        console.log(id)
+                        
                             if (item.id === id ) {
                                 return updatedItem
                             }
