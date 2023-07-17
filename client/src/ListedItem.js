@@ -1,14 +1,13 @@
 import React,{useContext,useState} from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./Context/CartContext";
-function ListedItem ({item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
-   console.log(item)
-  const {setCartItems,cartItems} = useContext(CartContext)
+function ListedItem ({addItemToShoppingCart,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
+   
+ function handleAddToCart () {
+  addItemToShoppingCart(item)
+ }
   const [isInCart, setIsinCart] = useState(false)
-    function addItemOnClick (item) {
-        setCartItems([...cartItems,item])
-        setIsinCart(true)
-    }
+
     return (
         <>
         <div className="item">
@@ -31,7 +30,7 @@ function ListedItem ({item,category,price,condition,wearer,name,seller,photo,bra
               </>
             ) :(
               <>
-              <button onClick={addItemOnClick}> Add Item to Cart</button>
+              <button onClick={()=>handleAddToCart}> Add Item to Cart</button>
               </>
             )
 

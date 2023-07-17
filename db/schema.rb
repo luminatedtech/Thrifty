@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2023_06_22_033432) do
   enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
+    t.string "shopping_cart", default: [], array: true
     t.string "username"
     t.string "password_digest"
   end

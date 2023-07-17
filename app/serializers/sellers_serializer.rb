@@ -1,8 +1,8 @@
 class SellersSerializer < ActiveModel::Serializer
-  attributes :id,:kind,:items,:reviews
+  attributes :id,:type,:items,:reviews
   has_many :customers
   has_many :items
-  def kind
+  def type
     "seller"
   end 
 end

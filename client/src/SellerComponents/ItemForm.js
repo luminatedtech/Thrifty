@@ -1,8 +1,10 @@
 import React, { useContext,useState } from "react";
 import { useParams,useNavigate } from "react-router-dom";
 import { SellerContext } from "../Context/SellerContext";
+import { ItemContext } from "../Context/ItemContext";
 function ItemForm () {
     const {setSellers,sellers} = useContext(SellerContext)
+    const {fetchItems,items} = useContext(ItemContext)
     const {sellerId} = useParams()
     const navigate = useNavigate()
     const [name,setName] = useState("")
@@ -11,7 +13,7 @@ function ItemForm () {
     const [condition,setCondition] = useState("")
     const [size,setSize] = useState("")
     const [category, setCategory] = useState("")
-    const [wearer, setWearer] = useState("")
+    const [wearer, setWearer] = useState("Men")
     const [photo,setPhoto] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [errors,setErrors] = useState([])
@@ -37,24 +39,32 @@ function ItemForm () {
             })
         }).then((r)=> {
             setIsLoading(false)
+    
             if (r.ok) {
+    
                 r.json().then((item)=> {
+                    const newSellers = []
+                
                     sellers.map((seller)=> {
-                        console.log(item)
-                        console.log(seller)
+                      
+                        
                         if (seller.id === item.seller_id) {
                             const updatedItems = [...seller.items,item]
+                            
                             seller.items = updatedItems
-                            setSellers(sellers)
                             
                         }
-                        else 
-                        return sellers
+                        newSellers.push(seller)
+                        
                     })
+                    
+                    setSellers(newSellers)
+                    fetchItems()
                 })
             } else {
                 r.json().then((err)=> setErrors(err.errors))
             }
+            
         })
     }
     return (

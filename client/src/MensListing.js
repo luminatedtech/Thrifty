@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react";
 import Item from "./SellerComponents/SellerItem";
 import MensItemList from "./MensItemList";
-function MensListing () {
+function MensListing (addItemToShoppingCart) {
     const [mensItems,setMensItems] = useState([])
     useEffect(()=> {
         fetch('/mensItems')
@@ -17,7 +17,7 @@ console.log(mensItems)
             <h1>Mens Listing</h1>
             <h1>Mens Listing</h1>
             <h1>Mens Listing</h1>
-        {<MensItemList mensItems ={mensItems} />}
+        {<MensItemList addItemToShoppingCart={addItemToShoppingCart} mensItems ={mensItems} />}
         </div>
     )
 }

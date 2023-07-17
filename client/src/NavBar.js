@@ -82,17 +82,20 @@ const {setUser} = useContext(LoginContext)
             
             
         </div>
-        { typeOfUser === "seller" &&
+        { typeOfUser === "seller" && 
             <Link to="/sellerDashboard"> 
-            <button onClick={()=>console.log("i was clicked")}>
+            <button className='signupButton' onClick={()=>console.log("i was clicked")}>
                 Seller Dashboard
             </button>
             </Link>
         }
-        <button onClick={()=>console.log(user)}> Check User</button>
-        <button onClick={()=>console.log(userInfo)}> Check User Info</button>
-        <button onClick={()=>console.log(typeOfUser)}> Check Type of User</button>
-
+        <Link to='/checkoutForm'>
+        <button>
+            Checkout
+        </button>
+      
+        </Link>
+      
 	</header>
     )
 }

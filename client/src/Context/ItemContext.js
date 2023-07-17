@@ -4,14 +4,15 @@ const ItemContext = React.createContext()
 
 function ItemProvider({ children }) {
     const [items,setItems] = useState([])
-
-    useEffect(()=> {
-       
+    function fetchItems () {
         fetch(`/items`)
         .then((r)=>r.json())
         .then((items)=>setItems(items))
+    }
+    useEffect(()=> {
+       fetchItems()
     },[])
-    return <ItemContext.Provider value ={{items,setItems}}>{children}</ItemContext.Provider>
+    return <ItemContext.Provider value ={{items,fetchItems}}>{children}</ItemContext.Provider>
 
 }
 
