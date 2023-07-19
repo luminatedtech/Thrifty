@@ -20,6 +20,7 @@ import SellerDashboard from "./SellerComponents/SellerDashboard";
 import SellerProfile from "./SellerProfile";
 import ReviewForm from "./ReviewForm";
 import ShoppingCart from "./ShoppingCart";
+import { ContextProvider, UserContext } from "./Context/UserContext";
 import { CartContext, CartProvider } from "./Context/CartContext";
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
@@ -28,10 +29,17 @@ function App() {
   const [user, setUser] = useState(null)
   const [userInfo, setUserInfo] = useState(false)
   const [typeOfUser, setTypeOfUser] = useState("")
-  const [shoppingCartItem,setShoppingCartItem] = useState([])
-  function addItemToShoppingCart(item){
-    setShoppingCartItem([...shoppingCartItem,item])
-  }
+  const [shoppingCartItems,setShoppingCartItem] = useState([])
+ 
+  // function addItemToShoppingCart(item){
+  //   if (!localStorage.getItem("shopping")) {
+  //     localStorage.setItem("shopping",JSON.stringify([]))
+  //   }
+  //   const currentShoppingCart = localStorage.getItem("shopping")
+  //   const cartObj = JSON.parse(currentShoppingCart)
+  //   setShoppingCartItem([...cartObj,item])
+  //   localStorage.setItem("shopping",JSON.stringify(shoppingCartItems))
+  // }
   useEffect(() => {
     fetch('/me').then((r)=> {
       console.log("r",r)
@@ -42,7 +50,7 @@ function App() {
           setUser(user)
           setTypeOfUser(user.type)
           setUserInfo(true)
-          setShoppingCartItem(user.shopping_cart)
+          
       
           console.log(typeOfUser)
         })
@@ -53,6 +61,7 @@ function App() {
   }, [])
   return (
     <div className="App">
+      <ContextProvider>
      <BrowserRouter>
      <CartProvider>
      <ReviewProvider>
@@ -62,6 +71,7 @@ function App() {
      <LoginContext.Provider value={{setUser,user}}>
       <TypeContext.Provider value={setTypeOfUser}>
      <NavBar typeOfUser={typeOfUser} user={user} userInfo={userInfo} />
+     
      <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path='/checkoutForm' element={<CheckoutForm/>}/>
@@ -73,12 +83,13 @@ function App() {
         <Route path= '/sellerSignup' element={<SellerSignup/>}/>
         <Route path= '/customerSignup' element={<CustomerSignup/>}/>
         <Route path= '/sellerDashboard' element={<SellerDashboard user={user}/>}/>
-        <Route path='/mensListing' element ={<MensListing addItemToShoppingCart={addItemToShoppingCart}/>}/>
-        <Route path= '/womensListing' element ={<WomensListing/>}/>
+        <Route path='/mensListing' element ={<MensListing  userInfo={userInfo}/>}/>
+        <Route path= '/womensListing' element ={<WomensListing  userInfo={userInfo}/>}/>
         <Route path= '/sellerProfile/:seller_id' element={<SellerProfile/>}/>
         <Route path= '/reviewForm/:seller_id' element={<ReviewForm/>}/>
         <Route path= '/shoppingCart' element={<ShoppingCart/>}/>
      </Routes>
+     
      </TypeContext.Provider>
      </LoginContext.Provider>
      </UserInfoContext.Provider>
@@ -87,7 +98,7 @@ function App() {
      </ReviewProvider>
      </CartProvider>
      </BrowserRouter>
-
+     </ContextProvider>
     </div>
   );
 }

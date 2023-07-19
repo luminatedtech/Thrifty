@@ -29,7 +29,7 @@ function handleSubmit(e) {
         if (r.ok) {
             r.json().then((review)=>{
             sellers.map((seller)=> {
-                console.log(seller)
+                console.log(seller.id)
                 if (seller.id === review.seller.id){
                 console.log(seller)
                  const updatedReviews = [...seller.reviews,review]

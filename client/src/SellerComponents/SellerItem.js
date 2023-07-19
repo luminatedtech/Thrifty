@@ -1,9 +1,10 @@
 import React, {useState,useContext} from "react";
 import ItemEditForm from "./ItemEditForm";
 import { SellerContext } from "../Context/SellerContext";
-
+import { ItemContext } from "../Context/ItemContext";
 function SellerItem ({userId,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
     console.log(userId)
+    const {fetchItems} = useContext(ItemContext)
     const [errors,setErrors] = useState([])
     const [showEdit, setShowEdit] = useState(true)
     const {sellers,setSellers} = useContext(SellerContext)
@@ -13,18 +14,21 @@ function SellerItem ({userId,item,category,price,condition,wearer,name,seller,ph
       })
       .then((r)=> {
         if (r.ok) {
+          const newSellers = []
           const deletedItem = item
           {sellers.map((seller)=> {
             if (seller.id === userId ) {
               const updatedItems = seller.items.filter(item => item.id !== deletedItem.id)
               seller.items = updatedItems
-              setSellers([...sellers])
+             
               console.log("deleted")
             }
-            else {
-              return sellers
-            }
+            newSellers.push(seller)
+           
           })}
+          setSellers(newSellers)
+          fetchItems()
+
         } else {
           r.json().then((err)=> setErrors(err.errors))
         }

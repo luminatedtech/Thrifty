@@ -4,14 +4,17 @@ import {Link,useNavigate} from "react-router-dom"
 import { LoginContext } from './App'
 import { TypeContext } from './App'
 import { UserInfoContext } from './App'
-import { CartContext } from './Context/CartContext'
+import { useUserContext } from './Context/UserContext'
+
+
 function NavBar ({user,typeOfUser,userInfo}) {
+
+const {cart,LOGOUT_USER} = useUserContext()
 const navigate = useNavigate()
-const {cartItems} = useContext(CartContext)
 const setUserInfo = useContext(UserInfoContext)
 const setTypeOfUser = useContext(TypeContext)
 const {setUser} = useContext(LoginContext)
-    function handleLogoutClick (){
+  const handleLogoutClick = () => {
         console.log(user)
         if (typeOfUser === "customer") {
             fetch("/customerLogout", {method: "DELETE"}).then((r)=> {
@@ -19,6 +22,7 @@ const {setUser} = useContext(LoginContext)
                     setUser(null)
                     setUserInfo(false)
                     setTypeOfUser(null)
+                    LOGOUT_USER()
                     navigate('/')
                     console.log("logged out as customer");
                 }
@@ -62,9 +66,11 @@ const {setUser} = useContext(LoginContext)
             <Link to='/womensListing'>
             <button className="signupButton">Womensware</button>
             </Link>
+            
+            {
             <Link to='/shoppingCart'>
-                <button> Shopping Cart {cartItems.length} </button>
-            </Link>
+                <button> Shopping Cart {cart.length} </button>
+            </Link>}
             { userInfo ? (
                 <>
                      <button className='loginButton' onClick={handleLogoutClick}> Logout</button>

@@ -1,13 +1,39 @@
-import React,{useContext,useState} from "react";
+import React,{useContext,useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "./Context/CartContext";
-function ListedItem ({addItemToShoppingCart,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
-   
- function handleAddToCart () {
-  addItemToShoppingCart(item)
- }
-  const [isInCart, setIsinCart] = useState(false)
+import { UserInfoContext } from "./App";
+import { UserContext, useUserContext } from "./Context/UserContext";
+function ListedItem ({userInfo,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
+  const {cart,UPDATE_CART_ITEMS} = useUserContext()
 
+  
+
+  console.log("cart",cart)
+  const [isInCart, setIsinCart] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
+  const checkUserAndCart = (item) => { 
+    let flag = true
+    //Is User logged in? 
+    //Is This item already in cart? 
+    if (userInfo === true) {
+      flag = false
+    }
+    const hasItemId = (targetId) => cart.some(listing => listing.id === targetId)
+    if (!hasItemId(item.id)) { 
+      flag = false
+    }
+    
+    console.log(flag)
+    setIsDisabled(flag)
+  }
+  useEffect(()=> {
+    checkUserAndCart(item)
+  },[cart,item])
+  function addItemtoCart (item) {
+    UPDATE_CART_ITEMS(item)
+   
+    console.log(item)
+  }
+ 
     return (
         <>
         <div className="item">
@@ -30,7 +56,8 @@ function ListedItem ({addItemToShoppingCart,item,category,price,condition,wearer
               </>
             ) :(
               <>
-              <button onClick={()=>handleAddToCart}> Add Item to Cart</button>
+
+              <button disabled={isDisabled} onClick={()=>addItemtoCart(item)}> Add Item to Cart</button>
               </>
             )
 

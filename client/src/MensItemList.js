@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ListedItem from "./ListedItem";
 import Filter from "./Filter";
-function MensItemList ({mensItems,addItemtoShoppingCart}) {
+function MensItemList ({mensItems,userInfo}) {
     const [selectedCategory, setSelectedCategory] = useState("All")
     function handleCategoryChange(category) {
         setSelectedCategory(category)
@@ -16,7 +16,7 @@ function MensItemList ({mensItems,addItemtoShoppingCart}) {
             <Filter category={selectedCategory} onCategoryChange={handleCategoryChange}/>
             
              {itemsToDisplay.map((item,i)=>(
-            <ListedItem  addItemtoShoppingCart={addItemtoShoppingCart} key={item.id} id={item.id} name={item.name} item={item} category={item.category} size={item.size} price={item.price} condition={item.condition} seller={item.seller} wearer={item.wearer} photo={item.photo} brand={item.brand}  index={i}/>
+            <ListedItem  userInfo={userInfo}  key={item.id} id={item.id} name={item.name} item={item} category={item.category} size={item.size} price={item.price} condition={item.condition} seller={item.seller} wearer={item.wearer} photo={item.photo} brand={item.brand} index={i}/>
         ))}
     
         </div>
