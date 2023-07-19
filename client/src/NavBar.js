@@ -67,10 +67,18 @@ const {setUser} = useContext(LoginContext)
             <button className="signupButton">Womensware</button>
             </Link>
             
-            {
+            { typeOfUser === "customer" &&
             <Link to='/shoppingCart'>
                 <button> Shopping Cart {cart.length} </button>
-            </Link>}
+            </Link>
+            }
+            { typeOfUser ==="customer" &&
+             <Link to='/checkoutForm'>
+                 <button>
+                    Checkout
+                </button>
+             </Link>
+            }
             { userInfo ? (
                 <>
                      <button className='loginButton' onClick={handleLogoutClick}> Logout</button>
@@ -95,12 +103,7 @@ const {setUser} = useContext(LoginContext)
             </button>
             </Link>
         }
-        <Link to='/checkoutForm'>
-        <button>
-            Checkout
-        </button>
-      
-        </Link>
+       
       
 	</header>
     )

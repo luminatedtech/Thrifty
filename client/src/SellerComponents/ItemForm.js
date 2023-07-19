@@ -142,6 +142,15 @@ function ItemForm () {
                     
                 </select>
             </div>
+            <div>
+                <label> Photo </label>
+                <input
+                type = "text"
+                value={photo}
+                onChange={(e)=>setPhoto(e.target.value)}
+                />
+
+            </div>
      
             <div>
                 <button className="addReviewsButton" type="submit">

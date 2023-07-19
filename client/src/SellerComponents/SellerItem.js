@@ -48,6 +48,7 @@ function SellerItem ({userId,item,category,price,condition,wearer,name,seller,ph
             <p><b>Brand:</b> {brand}</p>
             <p><b>For</b> {wearer}</p>
             
+            
           </div>
           {showEdit ? (
         <>
