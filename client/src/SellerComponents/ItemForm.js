@@ -13,7 +13,7 @@ function ItemForm () {
     const [condition,setCondition] = useState("")
     const [size,setSize] = useState("")
     const [category, setCategory] = useState("")
-    const [wearer, setWearer] = useState("Men")
+    const [wearer, setWearer] = useState("")
     const [photo,setPhoto] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [errors,setErrors] = useState([])
