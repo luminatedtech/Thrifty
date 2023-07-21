@@ -1,7 +1,6 @@
 import React, {useState, createContext,useEffect} from "react"
 import {Routes,Route,BrowserRouter} from "react-router-dom"
 import './App.css';
-import CheckoutForm from "./CheckoutForm";
 import NavBar from './NavBar';
 import SignUpPage from './Signup/SignUpPage';
 import LoginPage from "./Login/LoginPage";
@@ -20,6 +19,7 @@ import SellerDashboard from "./SellerComponents/SellerDashboard";
 import SellerProfile from "./SellerProfile";
 import ReviewForm from "./ReviewForm";
 import ShoppingCart from "./ShoppingCart";
+import CheckoutPage from "./CheckoutPage";
 import { ContextProvider, UserContext } from "./Context/UserContext";
 import { CartContext, CartProvider } from "./Context/CartContext";
 export const LoginContext = createContext(null)
@@ -74,7 +74,7 @@ function App() {
      
      <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path='/checkoutForm' element={<CheckoutForm/>}/>
+        <Route path='/shoppingCart/checkoutPage' element={<CheckoutPage/>}/>
         <Route path='/itemForm/:sellerId' element={<ItemForm/>}/>
         <Route path="/signupForms" element={<SignUpPage/>}/>
         <Route path='/loginForms' element={<LoginPage/>}/>
