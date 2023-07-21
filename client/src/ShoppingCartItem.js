@@ -1,6 +1,6 @@
 import React from "react";
 
-function ShoppingCartItem (id,category,price,condition,wearer,name,seller,photo,brand,size){
+function ShoppingCartItem ({id,category,price,condition,wearer,name,seller,photo,brand,size}){
     return (
         <>
         <div className="item">

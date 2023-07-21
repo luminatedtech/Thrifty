@@ -1,8 +1,10 @@
 import React, {useState,useContext} from "react"
 import { useParams,useNavigate} from "react-router-dom"
 import { SellerContext } from "./Context/SellerContext"
+import { ReviewContext } from "./Context/ReviewContext"
 function ReviewForm () {
 const {setSellers,sellers}= useContext(SellerContext)
+const {setReviews,reviews} = useContext(ReviewContext)
 const navigate = useNavigate()
 const sellerId = useParams()
 const [comment,setComment] = useState ("")
@@ -26,21 +28,27 @@ function handleSubmit(e) {
         }),
     }).then((r)=> {
         setIsLoading(false)
+      
         if (r.ok) {
+            const newSellers = []
             r.json().then((review)=>{
-            sellers.map((seller)=> {
+            sellers.forEach((seller)=> {
                 console.log(seller.id)
-                if (seller.id === review.seller.id){
+                console.log("review", review)
+                if (seller.id === review.seller_id){
                 console.log(seller)
                  const updatedReviews = [...seller.reviews,review]
                   seller.reviews = updatedReviews
-                
-                  setSellers(sellers)
-             
+                  
                 }
-                else 
-                return sellers
+              
+                newSellers.push(seller)
+    
             })
+            setSellers(newSellers)
+            setReviews([...reviews,review])
+            console.log("newsellers",newSellers)
+
         })
             //Iterate through the shops and find the shop that's getting the review 
             //Find the Reviews key and add that review 

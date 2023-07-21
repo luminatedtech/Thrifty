@@ -16,10 +16,10 @@ function ShoppingCart () {
                 <h1>Shopping Cart</h1>
                 <h1>Shopping Cart</h1>
                 
-                {/* {cart.map((item)=>(
+                {cart.map((item)=>(
             <ShoppingCartItem key={item.id} id={item.id} name={item.name} item={item} category={item.category} size={item.size} price={item.price} condition={item.condition} seller={item.seller} wearer={item.wearer} photo={item.photo} brand={item.brand} />
         ))}
-                 */}
+                
         </div>
     )
 }

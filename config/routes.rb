@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   get '/mensItems', to: 'items#mens_items'
   get '/womensItems', to: 'items#womens_items'
+  post '/create_payment_intent', to: 'payments#create_payment_intent'
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
