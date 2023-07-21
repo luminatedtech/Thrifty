@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
       cart_items = params[:cart_items]
       total_amount = calculate_total_amount(cart_items)
       total_amount_in_cents = (total_amount * 100).to_i
-      byebug
+      
       # Create the PaymentIntent using the Stripe API
       begin
         intent = Stripe::PaymentIntent.create({
