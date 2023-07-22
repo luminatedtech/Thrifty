@@ -10,6 +10,7 @@ function CheckoutPage() {
   const [clientSecret, setClientSecret] = useState('');
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  console.log(stripe)
 const {cart} = useUserContext()
   useEffect(() => {
     // Fetch the PaymentIntent client secret from your backend
