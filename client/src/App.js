@@ -31,15 +31,7 @@ function App() {
   const [typeOfUser, setTypeOfUser] = useState("")
   const [shoppingCartItems,setShoppingCartItem] = useState([])
  
-  // function addItemToShoppingCart(item){
-  //   if (!localStorage.getItem("shopping")) {
-  //     localStorage.setItem("shopping",JSON.stringify([]))
-  //   }
-  //   const currentShoppingCart = localStorage.getItem("shopping")
-  //   const cartObj = JSON.parse(currentShoppingCart)
-  //   setShoppingCartItem([...cartObj,item])
-  //   localStorage.setItem("shopping",JSON.stringify(shoppingCartItems))
-  // }
+
   useEffect(() => {
     fetch('/me').then((r)=> {
       console.log("r",r)

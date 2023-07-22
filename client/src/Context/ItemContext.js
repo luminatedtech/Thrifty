@@ -12,7 +12,7 @@ function ItemProvider({ children }) {
     useEffect(()=> {
        fetchItems()
     },[])
-    return <ItemContext.Provider value ={{items,fetchItems}}>{children}</ItemContext.Provider>
+    return <ItemContext.Provider value ={{items,setItems,fetchItems}}>{children}</ItemContext.Provider>
 
 }
 
