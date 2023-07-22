@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import { useUserContext } from "./Context/UserContext";
 import ShoppingCartItem from "./ShoppingCartItem";
 function ShoppingCart () {
-    const {cart} = useUserContext()
-    
+    const {cart,dispatch} = useUserContext()
+    const clearCartItems = () => {
+     
+        dispatch({
+          type: 'EMPTY',
+          payload: [],
+        });}
     console.log(cart)
     return (
 
@@ -20,7 +25,9 @@ function ShoppingCart () {
                 {cart.map((item)=>(
             <ShoppingCartItem key={item.id} id={item.id} name={item.name} item={item} category={item.category} size={item.size} price={item.price} condition={item.condition} seller={item.seller} wearer={item.wearer} photo={item.photo} brand={item.brand} />
         ))}
-        
+        <button onClick={clearCartItems}>
+            Clear Cart 
+        </button>
         <Link to="/shoppingCart/checkoutPage">
             <button>
                 Checkout
