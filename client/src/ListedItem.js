@@ -1,14 +1,14 @@
-import React,{useContext,useState,useEffect} from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-import { UserInfoContext } from "./App";
-import { UserContext, useUserContext } from "./Context/UserContext";
+
+import { useUserContext } from "./Context/UserContext";
 function ListedItem ({userInfo,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
   const {cart,UPDATE_CART_ITEMS} = useUserContext()
 
   
 
   console.log("cart",cart)
-  const [isInCart, setIsinCart] = useState(false)
+  const [isInCart] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
   const checkUserAndCart = (item) => { 
     let flag = true

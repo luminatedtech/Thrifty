@@ -41,12 +41,12 @@ def show
 end 
 def mens_items
     items = Item.all
-    filtered_items = items.select{|item| item.wearer == "Men"}
+    filtered_items = items.select{|item| item.wearer == "Mens"}
     render json: filtered_items, include: :seller
 end 
 def womens_items
     items = Item.all
-    filtered_items = items.select{|item| item.wearer == "Women"}
+    filtered_items = items.select{|item| item.wearer == "Womens"}
     render json: filtered_items, include: :seller
 end 
 private 

@@ -137,8 +137,8 @@ function ItemForm () {
                 <select name="selectedWearer"
                 value={wearer}
                 onChange={(e)=>setWearer(e.target.value)}>
-                    <option value="Men"> Mens</option>
-                    <option value="Women"> Womens</option>
+                    <option value="Mens"> Mens</option>
+                    <option value="Womens"> Womens</option>
                     
                 </select>
             </div>

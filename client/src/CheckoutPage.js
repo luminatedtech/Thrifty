@@ -11,7 +11,20 @@ function CheckoutPage() {
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   console.log(stripe)
-const {cart} = useUserContext()
+const {cart,dispatch} = useUserContext()
+const clearCartItems = () => {
+  // Implement your logic to clear cart items in context and local storage
+  // Using the useUserContext hook to access the context and dispatch function
+  
+  // Clear cart items in context
+  dispatch({
+    type: 'UPDATE_CART',
+    payload: [],
+  });
+
+  // Clear cart items in local storage
+  localStorage.setItem('cart', JSON.stringify([]));
+};
   useEffect(() => {
     // Fetch the PaymentIntent client secret from your backend
     const fetchPaymentIntent = async () => {
@@ -54,11 +67,19 @@ const {cart} = useUserContext()
     } else if (result.paymentIntent.status === 'succeeded') {
       console.log('Payment succeeded!');
       setPaymentSuccess(true);
+      clearCartItems()
     }
   };
 
   return (
-    <div>
+   
+   
+    <div className='checkoutForm'>
+      <h1>hi</h1>
+      <h1>hi</h1>
+      <h1>hi</h1>
+      <h1>hi</h1>
+      <h1>hi</h1>
       <h2>Checkout Page</h2>
       <form onSubmit={handleSubmit}>
         <div>
