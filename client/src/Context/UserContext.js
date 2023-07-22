@@ -21,6 +21,9 @@ function reducer(state, action) {
     case 'LOGOUT_AND_EMPTY':
         localStorage.removeItem("cart")
         return {cart: [], user: {}};
+    case 'EMPTY':
+      localStorage.removeItem("cart")
+      return {cart:[]}
     default:
       return initialState;
   }
@@ -43,6 +46,12 @@ export const ContextProvider = ({children}) => {
       type: "LOGOUT_AND_EMPTY",
     });
   };
+  const SUCCESSFUL_PAYMENT = () => {
+    dispatch({
+      type: "EMPTY",
+      payload: []
+    })
+  }
 
   return (
     <UserContext.Provider
@@ -51,6 +60,7 @@ export const ContextProvider = ({children}) => {
         cart,
         UPDATE_CART_ITEMS,
         LOGOUT_USER,
+        SUCCESSFUL_PAYMENT,
         dispatch
       }}
     >

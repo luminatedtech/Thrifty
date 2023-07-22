@@ -11,14 +11,14 @@ function CheckoutPage() {
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   console.log(stripe)
-const {cart,dispatch} = useUserContext()
+const {cart,dispatch,SUCESSFUL_PAYMENT} = useUserContext()
 const clearCartItems = () => {
   // Implement your logic to clear cart items in context and local storage
   // Using the useUserContext hook to access the context and dispatch function
   
   // Clear cart items in context
   dispatch({
-    type: 'UPDATE_CART',
+    type: 'EMPTY',
     payload: [],
   });
 
