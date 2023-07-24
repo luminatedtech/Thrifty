@@ -37,6 +37,8 @@ header {
   z-index: 100;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+
 button:hover {
   cursor: pointer;
 }
@@ -245,4 +247,64 @@ button:hover {
   width: 45%;
   margin: 1rem 0;
   background: var(--cyan);
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Base button styles */
+.button {
+  display: inline-block;
+  border: 2px solid #007BFF;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover and Focus styles */
+.button:hover,
+.button:focus {
+  background-color: #0056b3;
+  /* You can adjust the color to your preference */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center; /* Centers the buttons vertically */
+  height: 300px; /* Adjust the height of the container div as needed */
+}
+/* Active (click) style */
+.button:active {
+  background-color: #003080;
+  /* You can adjust the color to your preference */
+}
+
+/* Disabled state style */
+.button:disabled {
+  background-color: #ccc;
+  color: #666;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.logo,
+.navbar {
+  position: relative;
+  display: flex; /* Add this to display buttons horizontally */
+  align-items: center;
+  z-index: 1; /* You can set this value higher for the element you want to appear on top */
 }

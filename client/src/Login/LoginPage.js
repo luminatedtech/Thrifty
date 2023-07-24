@@ -4,17 +4,12 @@ import {Link} from "react-router-dom"
 function LoginPage () {
 
     return (
-        <div>
-        <h1> Login as? </h1>
-        <h1> Login as? </h1>
-        <h1> Login as? </h1>
-        <h1> Login as? </h1>
-        <h1> Login as? </h1>
+        <div className="button-container">
         <Link to='/sellerLogin'>
-            <button> Login as Seller</button>
+            <button className="button"> Login as Seller</button>
         </Link>
         <Link to='/customerLogin'>
-            <button> Login as Customer</button>
+            <button className="button"> Login as Customer</button>
         </Link>
         </div>
      

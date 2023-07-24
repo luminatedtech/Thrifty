@@ -20,8 +20,8 @@ import SellerProfile from "./SellerProfile";
 import ReviewForm from "./ReviewForm";
 import ShoppingCart from "./ShoppingCart";
 import CheckoutPage from "./CheckoutPage";
-import { ContextProvider, UserContext } from "./Context/UserContext";
-import { CartContext, CartProvider } from "./Context/CartContext";
+import { ContextProvider } from "./Context/UserContext";
+import { CartProvider } from "./Context/CartContext";
 export const LoginContext = createContext(null)
 export const TypeContext = createContext(null)
 export const UserInfoContext = createContext(null)
@@ -29,7 +29,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [userInfo, setUserInfo] = useState(false)
   const [typeOfUser, setTypeOfUser] = useState("")
-  const [shoppingCartItems,setShoppingCartItem] = useState([])
+  
  
 
   useEffect(() => {
@@ -63,7 +63,6 @@ function App() {
      <LoginContext.Provider value={{setUser,user}}>
       <TypeContext.Provider value={setTypeOfUser}>
      <NavBar typeOfUser={typeOfUser} user={user} userInfo={userInfo} />
-     
      <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path='/shoppingCart/checkoutPage' element={<CheckoutPage/>}/>
@@ -81,7 +80,6 @@ function App() {
         <Route path= '/reviewForm/:seller_id' element={<ReviewForm/>}/>
         <Route path= '/shoppingCart' element={<ShoppingCart/>}/>
      </Routes>
-     
      </TypeContext.Provider>
      </LoginContext.Provider>
      </UserInfoContext.Provider>

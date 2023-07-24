@@ -23,6 +23,7 @@ function reducer(state, action) {
         return {cart: [], user: {}};
     case 'EMPTY':
       localStorage.removeItem("cart")
+      localStorage.setItem("cart",JSON.stringify([]))
       return {cart:[]}
     default:
       return initialState;

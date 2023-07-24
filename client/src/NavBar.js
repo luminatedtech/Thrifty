@@ -50,16 +50,20 @@ const {setUser} = useContext(LoginContext)
     }
     return (
     <header>
-        <div className="logoContainer">
-            <Link to ="/" >
-                <img alt="coffeephoto" className="navBarLogo" src="coffeelogo.png"/>
+        <div className="logo">
+            <Link to ="/home" >
+                <img alt="homeLogo" className="navBarLogo" src=""/>
                 <p>Thirfty</p>
             </Link>
         </div>
-        <div className="navbarButtonContainer">
-            <Link to='/signupForms'>
-            <button className="signupButton">Signup</button>
+        <div className="navbar">
+        { typeOfUser === "seller" && 
+            <Link to="/sellerDashboard"> 
+            <button className='button' onClick={()=>console.log("i was clicked")}>
+                Seller Dashboard
+            </button>
             </Link>
+        }
             <Link to='/mensListing'>
             <button className="signupButton">Mensware</button>
             </Link>
@@ -72,13 +76,9 @@ const {setUser} = useContext(LoginContext)
                 <button> Shopping Cart {cart.length} </button>
             </Link>
             }
-            { typeOfUser ==="customer" &&
-             <Link to='/checkoutForm'>
-                 <button>
-                    Checkout
-                </button>
-             </Link>
-            }
+            <Link to='/signupForms'>
+            <button className="signupButton">Signup</button>
+            </Link>
             { userInfo ? (
                 <>
                      <button className='loginButton' onClick={handleLogoutClick}> Logout</button>
@@ -96,13 +96,7 @@ const {setUser} = useContext(LoginContext)
             
             
         </div>
-        { typeOfUser === "seller" && 
-            <Link to="/sellerDashboard"> 
-            <button className='signupButton' onClick={()=>console.log("i was clicked")}>
-                Seller Dashboard
-            </button>
-            </Link>
-        }
+      
        
       
 	</header>
