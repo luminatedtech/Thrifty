@@ -1,9 +1,27 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import SellerItem from "./SellerItem";
-function SellerItemList ({items,userId}) {
+function SellerItemList ({userId,user}) {
+  const [sellerItems, setSellerItems] = useState([])
+    console.log(userId)
+    useEffect(()=> {
+      fetch('/seller_list').then((r)=> {
+        
+        r.json().then((seller_list)=> {
+          console.log(seller_list)
+          setSellerItems(seller_list)} )
+      })
+        
+      
+    },[])
+  
     return (
-        <div className="itemList"> {items.map((item,i)=>(
-            <SellerItem userId={userId} key={item.id} id={item.id} name={item.name} item={item} category={item.category} size={item.size} price={item.price} condition={item.condition} seller={item.seller} wearer={item.wearer} photo={item.photo} brand={item.brand}  index={i}/>
+        <div className="itemList"> {sellerItems && sellerItems.length > 0 && sellerItems.map((item,i)=>(
+            <SellerItem 
+              user = {user}
+              userId={userId} 
+              item={item}
+              setSellerItems ={setSellerItems}
+              index={i}/>
         ))}
     
         </div>

@@ -75,8 +75,8 @@ function App() {
         <Route path= '/sellerSignup' element={<SellerSignup/>}/>
         <Route path= '/customerSignup' element={<CustomerSignup/>}/>
         <Route path= '/sellerDashboard' element={<SellerDashboard user={user}/>}/>
-        <Route path='/mensListing' element ={<MensListing  userInfo={userInfo}/>}/>
-        <Route path= '/womensListing' element ={<WomensListing  userInfo={userInfo}/>}/>
+        <Route path='/mensListing' element ={<MensListing  typeOfUser= {typeOfUser} userInfo={userInfo}/>}/>
+        <Route path= '/womensListing' element ={<WomensListing  typeOfUser= {typeOfUser} userInfo={userInfo}/>}/>
         <Route path= '/sellerProfile/:seller_id' element={<SellerProfile/>}/>
         <Route path= '/reviewForm/:seller_id' element={<ReviewForm/>}/>
         <Route path= '/shoppingCart' element={<ShoppingCart/>}/>

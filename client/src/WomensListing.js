@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import WomensItemList from "./WomensItemList"
-function WomensListing () {
+function WomensListing ({typeOfUser}) {
     const [womensItems, setWomensItems] =useState([])
     useEffect(()=> {
         fetch('/womensItems')
@@ -14,7 +14,7 @@ function WomensListing () {
             <h1>Womens Listing</h1>
             <h1>Womens Listing</h1>
             <h1>Womens Listing</h1>
-        {<WomensItemList womensItems={womensItems}/>}
+        {< WomensItemList typeOfUser= {typeOfUser} womensItems={womensItems}/>}
 
         </div>
     )

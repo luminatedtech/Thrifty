@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react"
 import { SellerContext } from "../Context/SellerContext"
 import { ItemContext } from "../Context/ItemContext"
-function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCategory, oldBrand, oldPhoto,id,oldName,setShowEdit}) {
+function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCategory, oldBrand, oldPhoto,id,oldName,setShowEdit,setSellerItems}) {
     const {setSellers} = useContext(SellerContext)
     const {setItems} = useContext(ItemContext)
     const [condition,setCondition] = useState(oldCondition)
@@ -36,26 +36,8 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
         .then((r)=> {
             setIsLoading(false)
             if (r.ok){
-                r.json().then((updatedItem)=>{
-                    
-                    setSellers((prevSellers)=> {
-                        const sellerIndex = prevSellers.findIndex((seller)=> seller.id === userId)
-                       prevSellers[sellerIndex].items = prevSellers[sellerIndex].items.map((item)=> {
-                        console.log(id)
-                        
-                            if (item.id === id ) {
-                                return updatedItem
-                            }
-                            else {
-                                return item
-                            }
-            
-                        })
-                        return ([...prevSellers])
-                        
-                    })
-                   
-            
+                r.json().then((updatedItemList)=>{
+                setSellerItems(updatedItemList)
                 setShowEdit(true)
                 })
                 

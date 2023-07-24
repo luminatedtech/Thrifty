@@ -3,15 +3,13 @@ import {Link} from "react-router-dom"
 import { ItemContext } from "../Context/ItemContext"
 import SellerItemList from "./SellerItemList"
 function SellerDashboard ({user}) {
-const {items} = useContext(ItemContext)
-const [userItems,setUserItems] = useState([])
-console.log("items",items)
-useEffect(()=> {
-    if (user){
-        setUserItems(items.filter((item)=> item.seller_id === user.id))
-    }
+
+// useEffect(()=> {
+//     if (user){
+//         setUserItems(items.filter((item)=> item.seller_id === user.id))
+//     }
     
-},[items,user])
+// },[items,user])
     
         if (user) {
             
@@ -30,7 +28,7 @@ useEffect(()=> {
                     <button> Add an Item </button>
                 </Link>
                
-                {<SellerItemList userId ={user.id} items = {userItems}/>}
+                {<SellerItemList user={user} userId ={user.id} />}
                
                 
             </div>

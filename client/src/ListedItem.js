@@ -1,10 +1,10 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useContext} from "react";
 import { Link } from "react-router-dom";
 
 import { useUserContext } from "./Context/UserContext";
-function ListedItem ({userInfo,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
+function ListedItem ({typeOfUser, userInfo,item,category,price,condition,wearer,name,seller,photo,brand,size,index,id}) {
   const {cart,UPDATE_CART_ITEMS} = useUserContext()
-
+  
   
 
   console.log("cart",cart)
@@ -50,18 +50,20 @@ function ListedItem ({userInfo,item,category,price,condition,wearer,name,seller,
             <p><b>Size:</b> {size}</p>
             <p><b>Brand:</b> {brand}</p>
             <p><b>For</b> {wearer}</p>
-            { isInCart ? (
-              <>
-                  Added
-              </>
-            ) :(
-              <>
-
-              <button disabled={isDisabled} onClick={()=>addItemtoCart(item)}> Add Item to Cart</button>
-              </>
-            )
-
-            }
+            {typeOfUser === "customer" && !isInCart ? (
+            <>
+              <button
+                disabled={isDisabled}
+                onClick={() => addItemtoCart(item)}
+              >
+                Add Item to Cart
+              </button>
+            </>
+          ) : (
+            <>
+              <div>Item is already in the cart or you are not a customer.</div>
+            </>
+          )}
         
           </div>
         </div>
