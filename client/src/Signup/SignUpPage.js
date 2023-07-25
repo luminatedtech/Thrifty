@@ -9,10 +9,10 @@ function SignUpPage () {
         <h1> Signup as? </h1>
         <h1> Signup as? </h1>
         <Link to='/sellerSignup'>
-            <button> Signup as Seller</button>
+            <button className="button"> Signup as Seller</button>
         </Link>
         <Link to='/customerSignup'>
-            <button> Signup as Customer</button>
+            <button className="button"> Signup as Customer</button>
         </Link>
         </div>
      

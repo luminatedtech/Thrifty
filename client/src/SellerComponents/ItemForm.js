@@ -63,12 +63,13 @@ function ItemForm () {
                 })
             } else {
                 r.json().then((err)=> setErrors(err.errors))
+                
             }
             
         })
     }
     return (
-        <div className="itemFormContainer">
+        <div className="form_container">
         <h2 > Create Item </h2>
         <form onSubmit={handleSubmit}>
             <div>
@@ -90,19 +91,36 @@ function ItemForm () {
                     
                 </select>
             </div>
-            <div>
-                <label> Size </label>
-                <select name="selectedSize"
-                 value={size}
-                  onChange={(e)=>setSize(e.target.value)}>
-                    <option value="XS"> XS</option>
-                    <option value="S"> S</option>
-                    <option value="M"> M</option>
-                    <option value="L"> L</option>
-                    <option value="XL"> XL</option>
-                    <option value="XXL"> XXL</option>
-                </select>
-            </div>
+            {
+                category === "Bottoms" ? (
+                    <div>
+                      <label> Size </label>
+                      <input
+                        type="number"  
+                        value={size}
+                        onChange={(e) => setSize(e.target.value)}
+                        min="0"  
+                      />
+                    </div>
+                  ) : (
+                    // Render size select dropdown for other categories
+                    <div>
+                      <label> Size </label>
+                      <select
+                        name="selectedSize"
+                        value={size}
+                        onChange={(e) => setSize(e.target.value)}
+                      >
+                        <option value="XS"> XS</option>
+                        <option value="S"> S</option>
+                        <option value="M"> M</option>
+                        <option value="L"> L</option>
+                        <option value="XL"> XL</option>
+                        <option value="XXL"> XXL</option>
+                      </select>
+                    </div>
+                  )
+            }
             <div>
                 <label> Price </label>
                 <input
@@ -154,7 +172,7 @@ function ItemForm () {
      
             <div>
                 <button className="addReviewsButton" type="submit">
-                    {isLoading ? "Loading.." : "Submit Review"}
+                    {isLoading ? "Loading.." : "Submit Item"}
                 </button>
             </div>
             {errors.length > 0 && (

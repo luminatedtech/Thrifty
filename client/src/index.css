@@ -34,7 +34,7 @@ header {
   align-items: center;
   padding: 1rem 3rem 1rem 3rem;
   background-color: white;
-  z-index: 100;
+  z-index: 10;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -42,6 +42,7 @@ header {
 button:hover {
   cursor: pointer;
 }
+
 
 
 .loginButton {
@@ -58,12 +59,7 @@ button:hover {
   min-width: 5rem;
   max-width: 6rem;
 }
-.navbarButtonContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 15rem;
-}
+
 
 .signupButton {
   padding: .75rem 1rem .75rem 1rem;
@@ -88,31 +84,6 @@ button:hover {
   font-family: "Cherry Bomb One";
 }
 
-.navbarButtonContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 10rem;
-  position: fixed;
-}
-
-.formContainer{
-  margin-top: 5rem;
- 
-}
-
-.formContainer input {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-  border: 0;
-  border-radius: 5px;
-} 
-
-.form {
-  top: 200px;
-  position: relative;
-}
 
 .itemList {
   height: 100%;
@@ -189,17 +160,6 @@ button:hover {
   align-self: center;
 }
 
-.button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 4px;
-  font-weight: 600;
-  margin: 0 10px;
-  width: 200px;
-  padding: 10px 0;
-  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-  transition: 0.4s;
-}
 
 .reviewList {
   display: flex;
@@ -285,7 +245,8 @@ button {
   display: flex;
   justify-content: center; /* Centers the buttons horizontally */
   align-items: center; /* Centers the buttons vertically */
-  height: 300px; /* Adjust the height of the container div as needed */
+  height: 300px;
+  padding-top: 50px;
 }
 /* Active (click) style */
 .button:active {
@@ -306,5 +267,65 @@ button {
   position: relative;
   display: flex; /* Add this to display buttons horizontally */
   align-items: center;
-  z-index: 1; /* You can set this value higher for the element you want to appear on top */
+  z-index: 1; 
+}
+
+/* Add styling for the form container */
+.form_container {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+
+
+.form-container form button.addReviewsButton {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container form button.addReviewsButton:hover {
+  background-color: #0056b3;
+}
+
+.form-container ul {
+  color: red;
+  margin-top: 10px;
+  padding-left: 20px; /* Indent error messages */
+}
+
+.form-container ul li {
+  list-style: disc;
+}
+
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+} 
+.loginForm {
+  max-width: 480px;
 }

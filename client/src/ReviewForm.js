@@ -47,12 +47,10 @@ function handleSubmit(e) {
             })
             setSellers(newSellers)
             setReviews([...reviews,review])
-            console.log("newsellers",newSellers)
+            
 
         })
-            //Iterate through the shops and find the shop that's getting the review 
-            //Find the Reviews key and add that review 
-          
+            
         } else {
             r.json().then((err)=> setErrors(err.errors))
         }
@@ -94,13 +92,13 @@ function handleSubmit(e) {
                                {isLoading ? "Loading.." : "Submit Review"}
                            </button>
                        </div>
-                       {/* {errors.length > 0 && (
+                       {errors.length > 0 && (
                            <ul style={{ color: "red" }}>
                            {errors.map((error) => (
                             <li key={error}>{error}</li>
                            ))}
                          </ul>
-                       )} */}
+                       )}
                    </form>
                </div>
     )

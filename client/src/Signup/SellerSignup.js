@@ -1,17 +1,16 @@
 import React,{useContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../App";
 import { TypeContext } from "../App";
 import { UserInfoContext } from "../App";
-function SellerSignup () {
+function SellerSignup ({setUser}) {
     const setUserInfo = useContext(UserInfoContext)
     const navigate = useNavigate()
     const setTypeOfUser = useContext(TypeContext)
-    const setUser = useContext(LoginContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [errors,setErrors] = useState([])
     function handleSubmit(e) {
         e.preventDefault();
         setIsLoading(true)
@@ -33,12 +32,12 @@ function SellerSignup () {
                 setTypeOfUser("seller")
                 navigate('/')
             } else {
-                console.log("not working")
+                r.json().then((err)=> setErrors(err.errors))
             }
         })
     }
     return (
-        <div className="formContainer">
+        <div className="form_container">
             <form className="form" onSubmit={handleSubmit}>
             <input
             placeholder="Username"
@@ -66,10 +65,14 @@ function SellerSignup () {
             <br/>
           
             <button className="signupButton" type="submit">{isLoading ? "Loading..": "Sign Up"} </button>
-           
+            {errors.length > 0 && (
+                <ul style={{ color: "red" }}>
+                {errors.map((error) => (
+                 <li key={error}>{error}</li>
+                ))}
+              </ul>
+            )}
         </form>
-
-
         </div>
     )
 }

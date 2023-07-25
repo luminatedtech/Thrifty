@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
         if item.valid? && session[:seller_id] = item.seller.id
             render json: item, status: :created
         else
-            render json: {errors: ['Test error']}
+            render json: {errors: item.errors.full_messages}, status: :unprocessable_entity
         end 
     end 
     def index

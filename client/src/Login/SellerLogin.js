@@ -34,8 +34,8 @@ function SellerLogin () {
         })
     }
     return (
-        <div className="formContainer">
-        <form className="form" onSubmit={handleSubmit}>
+        <div className="form_container">
+        <form className="loginForm" onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder="Enter Username"

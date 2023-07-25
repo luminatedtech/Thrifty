@@ -35,7 +35,7 @@ function handleSubmit(e) {
     })
 }
     return (
-        <div className="formContainer">
+        <div className="form_container">
 				<form className="form" onSubmit={handleSubmit}>
 					<input
 						type="text"
