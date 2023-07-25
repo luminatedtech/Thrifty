@@ -5,7 +5,7 @@ class SellerSessionsController < ApplicationController
             session[:seller_id] = seller.id 
             render json: seller, status: :created
         else 
-            render json: {errors: ["Invalid username or password"]}, status: :unauthorized
+            render json: {errors: ["Wrong Username or Password"]}, status: :unauthorized
         end 
     end 
     def destroy

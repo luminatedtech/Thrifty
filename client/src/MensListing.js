@@ -12,11 +12,6 @@ console.log(mensItems)
     
     return (
         <div>
-            <h1>Mens Listing</h1>
-            <h1>Mens Listing</h1>
-            <h1>Mens Listing</h1>
-            <h1>Mens Listing</h1>
-            <h1>Mens Listing</h1>
         <MensItemList typeOfUser= {typeOfUser} userInfo={userInfo} mensItems ={mensItems} />
         </div>
     )

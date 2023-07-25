@@ -34,17 +34,11 @@ function App() {
 
   useEffect(() => {
     fetch('/me').then((r)=> {
-      console.log("r",r)
       if (r.ok) {
-     console.log("r.ok")
         r.json().then((user) => {
-          console.log("user",user)
           setUser(user)
           setTypeOfUser(user.type)
           setUserInfo(true)
-          
-      
-          console.log(typeOfUser)
         })
 
         

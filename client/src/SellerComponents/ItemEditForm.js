@@ -1,9 +1,5 @@
-import React, {useContext, useState} from "react"
-import { SellerContext } from "../Context/SellerContext"
-import { ItemContext } from "../Context/ItemContext"
-function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCategory, oldBrand, oldPhoto,id,oldName,setShowEdit,setSellerItems}) {
-    const {setSellers} = useContext(SellerContext)
-    const {setItems} = useContext(ItemContext)
+import React, { useState} from "react"
+function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, oldBrand, oldPhoto,id,oldName,setShowEdit,setSellerItems}) {
     const [condition,setCondition] = useState(oldCondition)
     const [size, setSize] = useState(oldSize)
     const [wearer,setWearer] = useState(oldWearer)
@@ -48,10 +44,10 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
         
     }
     return (
-        <div className="itemFormContainer">
+        <div className="item-edit-form-container">
         <h2 > Update Item </h2>
         <form onSubmit={onUpdateItemClick}>
-            <div>
+        <div>
                 <label> Name </label>
                 <input
                 type="text"
@@ -70,19 +66,35 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
                     
                 </select>
             </div>
-            <div>
-                <label> Size </label>
-                <select name="selectedSize"
-                 value={size}
-                  onChange={(e)=>setSize(e.target.value)}>
-                    <option value="XS"> XS</option>
-                    <option value="S"> S</option>
-                    <option value="M"> M</option>
-                    <option value="L"> L</option>
-                    <option value="XL"> XL</option>
-                    <option value="XXL"> XXL</option>
-                </select>
-            </div>
+            {
+                category === "Bottoms" ? (
+                    <div>
+                      <label> Size </label>
+                      <input
+                        type="number"  
+                        value={size}
+                        onChange={(e) => setSize(e.target.value)}
+                        min="0"  
+                      />
+                    </div>
+                  ) : (
+                    <div>
+                      <label> Size </label>
+                      <select
+                        name="selectedSize"
+                        value={size}
+                        onChange={(e) => setSize(e.target.value)}
+                      >
+                        <option value="XS"> XS</option>
+                        <option value="S"> S</option>
+                        <option value="M"> M</option>
+                        <option value="L"> L</option>
+                        <option value="XL"> XL</option>
+                        <option value="XXL"> XXL</option>
+                      </select>
+                    </div>
+                  )
+            }
             <div>
                 <label> Price </label>
                 <input
@@ -117,15 +129,24 @@ function ItemEditForm ({userId,oldCondition, oldSize, oldWearer,oldPrice, oldCat
                 <select name="selectedWearer"
                 value={wearer}
                 onChange={(e)=>setWearer(e.target.value)}>
-                    <option value="Men"> Men</option>
-                    <option value="Women"> Women</option>
+                    <option value="Mens"> Mens</option>
+                    <option value="Womens"> Womens</option>
                     
                 </select>
+            </div>
+            <div>
+                <label> Photo </label>
+                <input
+                type = "text"
+                value={photo}
+                onChange={(e)=>setPhoto(e.target.value)}
+                />
+
             </div>
      
             <div>
                 <button className="addReviewsButton" type="submit">
-                    {isLoading ? "Loading.." : "Submit Review"}
+                    {isLoading ? "Loading.." : "Confirm Item"}
                 </button>
             </div>
             {errors.length > 0 && (

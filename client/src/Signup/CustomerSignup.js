@@ -38,7 +38,7 @@ function CustomerSignup ({setUser}) {
     }
     return (
         <div className="form_container">
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="loginForm" onSubmit={handleSubmit}>
             <input
             placeholder="Username"
             type="text"

@@ -11,6 +11,7 @@ function SellerLogin () {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [errors,setErrors] = useState([])
     function handleSubmit(e) {
         e.preventDefault();
         setIsLoading(true);
@@ -29,7 +30,7 @@ function SellerLogin () {
                 navigate('/')
             }
             else {
-                console.log("didnt work")
+                r.json().then((err)=> setErrors(err.errors))
             }
         })
     }
@@ -53,6 +54,13 @@ function SellerLogin () {
             <button className = "loginButton" type="submit" name="submit" value="Login">
                 {isLoading ? "Loading..." : "Login"}
             </button>
+            {errors.length > 0 && (
+                <ul style={{ color: "red" }}>
+                {errors.map((error) => (
+                 <li key={error}>{error}</li>
+                ))}
+              </ul>
+            )}
         </form>
 </div>
     )

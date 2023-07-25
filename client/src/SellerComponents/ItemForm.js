@@ -4,7 +4,7 @@ import { SellerContext } from "../Context/SellerContext";
 import { ItemContext } from "../Context/ItemContext";
 function ItemForm () {
     const {setSellers,sellers} = useContext(SellerContext)
-    const {fetchItems,items} = useContext(ItemContext)
+    const {fetchItems} = useContext(ItemContext)
     const {sellerId} = useParams()
     const navigate = useNavigate()
     const [name,setName] = useState("")
@@ -13,7 +13,7 @@ function ItemForm () {
     const [condition,setCondition] = useState("")
     const [size,setSize] = useState("")
     const [category, setCategory] = useState("")
-    const [wearer, setWearer] = useState("")
+    const [wearer, setWearer] = useState("Mens")
     const [photo,setPhoto] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [errors,setErrors] = useState([])
@@ -60,6 +60,7 @@ function ItemForm () {
                     
                     setSellers(newSellers)
                     fetchItems()
+                    navigate('/sellerDashboard')
                 })
             } else {
                 r.json().then((err)=> setErrors(err.errors))
@@ -69,7 +70,7 @@ function ItemForm () {
         })
     }
     return (
-        <div className="form_container">
+        <div className="item-form-container">
         <h2 > Create Item </h2>
         <form onSubmit={handleSubmit}>
             <div>

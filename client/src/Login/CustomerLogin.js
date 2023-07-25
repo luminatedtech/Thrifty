@@ -11,6 +11,7 @@ const {setUser} = useContext(LoginContext)
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
 const [isLoading, setIsLoading] = useState(false)
+const [errors,setErrors] = useState([])
 function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -27,16 +28,16 @@ function handleSubmit(e) {
             r.json().then((user)=> setUser(user))
             setUserInfo(true)
             setTypeOfUser("customer")
-            navigate('/')
+            navigate('/home')
         }
         else {
-            console.log("didnt work")
+            r.json().then((err)=> setErrors(err.errors))
         }
     })
 }
     return (
         <div className="form_container">
-				<form className="form" onSubmit={handleSubmit}>
+				<form className="loginForm" onSubmit={handleSubmit}>
 					<input
 						type="text"
 						placeholder="Enter Username"
@@ -54,6 +55,13 @@ function handleSubmit(e) {
 					<button className = "loginButton" type="submit" name="submit" value="Login">
 						{isLoading ? "Loading..." : "Login"}
 					</button>	
+                    {errors.length > 0 && (
+                <ul style={{ color: "red" }}>
+                {errors.map((error) => (
+                 <li key={error}>{error}</li>
+                ))}
+              </ul>
+            )}
 				</form>
 		</div>
     )

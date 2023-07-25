@@ -1,7 +1,6 @@
 import React, {useState,useContext} from "react";
 import ItemEditForm from "./ItemEditForm";
 import { SellerContext } from "../Context/SellerContext";
-import { ItemContext } from "../Context/ItemContext";
 function SellerItem ({user,userId,item,setSellerItems}) {
     console.log(user)
     const  {
@@ -39,7 +38,6 @@ function SellerItem ({user,userId,item,setSellerItems}) {
               <img alt="itemLogo" src={id === 6 ? "/beanhut.jpg" : photo}/> 
               <div className="itemInfo">
                 <h1>{name}</h1>
-                {/* <h3>Seller: {seller.username} </h3> */}
                 <p><b>Price:</b> ${item.price}</p>
                 <p><b>Condition:</b> {condition}</p>
                 <p><b>Category:</b> {category}</p>
@@ -52,7 +50,7 @@ function SellerItem ({user,userId,item,setSellerItems}) {
               {showEdit ? (
             <>
               <button className ="editButton" onClick={()=> setShowEdit(false)}>
-                <img alt="edit" src="edit.png" />
+              <img alt="Edit" src="editbutton.png" style={{ width: "24px", height: "24px" }} />
               </button>
             </>
           ) : (
@@ -67,7 +65,7 @@ function SellerItem ({user,userId,item,setSellerItems}) {
             </>
           )}
               <button className="deleteButton" onClick={onDeleteItem}>
-                Delete Item
+                Delete 
               </button>
               {/* {errors.length > 0 && (
                     <ul style={{ color: "red" }}>

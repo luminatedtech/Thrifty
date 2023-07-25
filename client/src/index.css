@@ -219,7 +219,7 @@ button {
   font-family: inherit;
 }
 
-/* Base button styles */
+
 .button {
   display: inline-block;
   border: 2px solid #007BFF;
@@ -286,35 +286,57 @@ button {
 }
 
 
+.item-edit-form-container form div {
+  margin-bottom: 10px; 
+  width: 100%;
+}
 
+.form_container, .item-edit-form-container form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
 
-.form-container form button.addReviewsButton {
-  background-color: #007BFF;
+.form_container, .item-edit-form-container form input[type="text"],
+.form_container, .item-edit-form-container form input[type="integer"],
+.form_container, .item-edit-form-container form input[type="number"],
+.form_container, .item-edit-form-container form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form_container, .item-edit-form-container form select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.form_container, .item-edit-form-container form button.addReviewsButton {
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.form-container form button.addReviewsButton:hover {
+/* .form_container, .item-edit-form-container form button.addReviewsButton:hover {
   background-color: #0056b3;
-}
+} */
 
-.form-container ul {
+.form_container, .item-edit-form-container {
   color: red;
   margin-top: 10px;
-  padding-left: 20px; /* Indent error messages */
+  padding-left: 20px;
 }
 
-.form-container ul li {
+.form_container,.item-edit-form-container ul li {
   list-style: disc;
 }
 
-
-.form-field {
-  margin-bottom: 20px;
-}
 
 label {
   font-weight: bold;
@@ -326,6 +348,46 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
 } 
+
+input[type="password"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+} 
 .loginForm {
-  max-width: 480px;
+  
+  margin-top: 250px;
+  width: 100%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.item-edit-form-container {
+  position: absolute;
+  height: 100%;
+  top: 150px;
+  right: 100px; /* Position on the right side of the page */
+  bottom: 0;
+  width: 300px; /* Set the width of the form */
+  background-color: #f2f2f2; /* Customize the background color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 100; /* Ensure it's above other content */
+}
+.item-form-container {
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  top: 150px;
+  left: 500px;
+  bottom: 0;
+  width: 300px; 
+  background-color: #f2f2f2; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 100;
 }

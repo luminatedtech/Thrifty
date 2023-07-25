@@ -9,11 +9,6 @@ function WomensListing ({typeOfUser}) {
     },[])
     return (
         <div>
-            <h1>Womens Listing</h1>
-            <h1>Womens Listing</h1>
-            <h1>Womens Listing</h1>
-            <h1>Womens Listing</h1>
-            <h1>Womens Listing</h1>
         {< WomensItemList typeOfUser= {typeOfUser} womensItems={womensItems}/>}
 
         </div>
