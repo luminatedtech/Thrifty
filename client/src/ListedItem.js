@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 
 import { useUserContext } from "./Context/UserContext";
@@ -12,8 +12,6 @@ function ListedItem ({typeOfUser, userInfo,item,category,price,condition,wearer,
   const [isDisabled, setIsDisabled] = useState(false)
   const checkUserAndCart = (item) => { 
     let flag = true
-    //Is User logged in? 
-    //Is This item already in cart? 
     if (userInfo === true) {
       flag = false
     }
