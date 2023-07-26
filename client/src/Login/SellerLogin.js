@@ -51,7 +51,7 @@ function SellerLogin () {
                 onChange={(e)=> setPassword(e.target.value)}
             />
             <br/>
-            <button className = "loginButton" type="submit" name="submit" value="Login">
+            <button className = "signupButton" type="submit" name="submit" value="Login">
                 {isLoading ? "Loading..." : "Login"}
             </button>
             {errors.length > 0 && (

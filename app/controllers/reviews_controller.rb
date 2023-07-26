@@ -6,17 +6,18 @@ class ReviewsController < ApplicationController
         if review.valid? && session[:customer_id] = review.customer.id
             render json: review, status: :created
         else 
-            render json: {errors: ["Test error"]}, status: :unprocessable_entity
+            render json: {errors: review.error.full_messages}, status: :unprocessable_entity
         end 
     end 
     def index
         if params[:seller_id]
             seller = Seller.find_by(id: params[:seller_id])
             reviews = seller.reviews
+            render json: reviews
         else 
             reviews = Review.all
         end 
-        render json: reviews, include: :seller
+        render json: reviews, include: :customer
     end 
     def destroy
         review = Review.find_by(id: params[:id])

@@ -35,7 +35,7 @@ function SellerItem ({user,userId,item,setSellerItems}) {
         <>
         {item && (
               <div className="item">
-              <img alt="itemLogo" src={id === 6 ? "/beanhut.jpg" : photo}/> 
+              <img className="listingPhoto" alt="itemLogo" src={id === 6 ? "/beanhut.jpg" : photo}/> 
               <div className="itemInfo">
                 <h1>{name}</h1>
                 <p><b>Price:</b> ${item.price}</p>
@@ -57,8 +57,8 @@ function SellerItem ({user,userId,item,setSellerItems}) {
             <>
               <ItemEditForm setSellerItems={setSellerItems} userId={userId} setShowEdit={setShowEdit} oldName={name} oldCategory={category} oldPrice = {price} oldWearer = {wearer} oldCondition = {condition} oldSize = {size} oldBrand = {brand} oldPhoto ={photo} id={id}/>
               <p>
-                Done?
-                <button onClick={()=>setShowEdit(true)}>
+              
+                <button className="signUpButton" onClick={()=>setShowEdit(true)}>
                   Exit
                 </button>
               </p>

@@ -35,7 +35,9 @@ function ListedItem ({typeOfUser, userInfo,item,category,price,condition,wearer,
     return (
         <>
         <div className="item">
-          <img alt="itemLogo" src={id === 6 ? "/beanhut.jpg" : photo}/> 
+          <div className="item-image">
+            <img className="listingPhoto" src={photo} alt="item" />
+          </div>
           <div className="itemInfo">
             <h1>{`${index + 1}. ${name}`}</h1>
             <Link to={`/sellerProfile/${seller.id}`}>

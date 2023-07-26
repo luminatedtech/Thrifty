@@ -47,7 +47,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
         <div className="item-edit-form-container">
         <h2 > Update Item </h2>
         <form onSubmit={onUpdateItemClick}>
-        <div>
+        <div className="form-group">
                 <label> Name </label>
                 <input
                 type="text"
@@ -55,7 +55,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                 onChange={(e)=>setName(e.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <label> Category </label>
                 <select name="selectedCategory"
                 value={category}
@@ -68,7 +68,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
             </div>
             {
                 category === "Bottoms" ? (
-                    <div>
+                    <div className="form-group">
                       <label> Size </label>
                       <input
                         type="number"  
@@ -78,7 +78,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                       />
                     </div>
                   ) : (
-                    <div>
+                    <div className="form-group">
                       <label> Size </label>
                       <select
                         name="selectedSize"
@@ -95,7 +95,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                     </div>
                   )
             }
-            <div>
+            <div className="form-group">
                 <label> Price </label>
                 <input
                 type="integer"
@@ -103,7 +103,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                 onChange={(e)=>setPrice(e.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <label> Brand</label>
                 <input
                 type="text"
@@ -111,7 +111,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                 onChange={(e)=>setBrand(e.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <label> Condition </label>
                 <select name="selectedCondition"
                   value={condition}
@@ -124,7 +124,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                 </select>
             </div>
             
-            <div>
+            <div className="form-group">
                 <label> Wearer</label>
                 <select name="selectedWearer"
                 value={wearer}
@@ -134,7 +134,7 @@ function ItemEditForm ({oldCondition, oldSize, oldWearer,oldPrice, oldCategory, 
                     
                 </select>
             </div>
-            <div>
+            <div className="form-group">
                 <label> Photo </label>
                 <input
                 type = "text"

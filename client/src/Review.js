@@ -1,38 +1,29 @@
-import React,{useContext,useState} from "react";
-import { SellerContext } from "./Context/SellerContext";
+import React from "react";
 
-function Review ({comment,review,title}) {
-    // const [showEdit, setShowEdit] = useState(true)
-    // const [errors,setErrors] = useState([])
-    
+function Review ({comment,review,title,rating}) {
+    const buyerUsername = review.customer.username
+    const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.5;
+
+  //
+  const starsArray = [...Array(5)].map((_, index) => {
+    const starValue = index + 1;
+    if (starValue <= fullStars) {
+      return <span key={index}>&#9733;</span>; 
+    } else if (starValue === fullStars + 1 && halfStar) {
+      return <span key={index}>&#9733;</span>; 
+    } else {
+      return <span key={index}>&#9734;</span>; 
+    }
+  });
     return (
         <div className="review">
       <div className="reviewContainer">
-        <p className="commenter"><span>This guy</span> <em>commented</em> {comment}</p>
-        <h2> {title} </h2>
-        {/* <p> This gets {stars} stars! </p> */}
+       <h2> {title} </h2>
+        <p className="commenter"><span>{buyerUsername}</span> <em>commented</em> {comment}</p>
+       
+       {starsArray}
       </div>
-      {/* {showEdit ? (
-        <>
-          <button className ="editButton" onClick={()=> setShowEdit(false)}>
-            <img alt="edit" src="edit.png" />
-          </button>
-        </>
-      ) : (
-        <>
-          <EditForm setShowEdit={setShowEdit} shopId={shopId} oldStars={stars} oldComment={comment} oldTitle={title} id={id}/>
-          <p>
-            Done?
-            <button onClick={()=>setShowEdit(true)}>
-              Exit
-            </button>
-          </p>
-        </>
-      )}
-      <button className ="deleteButton" onClick={onDeleteReview}>
-        <img alt="delete" src="delete.png" />
-      </button> */}
-    
     </div>
     )
 }

@@ -6,10 +6,10 @@ function LoginPage () {
     return (
         <div className="button-container">
         <Link to='/sellerLogin'>
-            <button className="button"> Login as Seller</button>
+            <button className="signupButton"> Seller Login</button>
         </Link>
         <Link to='/customerLogin'>
-            <button className="button"> Login as Customer</button>
+            <button className="signupButton"> Customer Login</button>
         </Link>
         </div>
      

@@ -73,7 +73,7 @@ function ItemForm () {
         <div className="item-form-container">
         <h2 > Create Item </h2>
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className="form-group">
                 <label> Name </label>
                 <input
                 type="text"
@@ -81,7 +81,7 @@ function ItemForm () {
                 onChange={(e)=>setName(e.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <label> Category </label>
                 <select name="selectedCategory"
                 value={category}
@@ -94,7 +94,7 @@ function ItemForm () {
             </div>
             {
                 category === "Bottoms" ? (
-                    <div>
+                    <div className="form-group">
                       <label> Size </label>
                       <input
                         type="number"  
@@ -105,7 +105,7 @@ function ItemForm () {
                     </div>
                   ) : (
                     // Render size select dropdown for other categories
-                    <div>
+                    <div className="form-group">
                       <label> Size </label>
                       <select
                         name="selectedSize"
@@ -122,15 +122,15 @@ function ItemForm () {
                     </div>
                   )
             }
-            <div>
-                <label> Price </label>
+            <div className="form-group">
+                <label > Price </label>
                 <input
                 type="integer"
                 value={price}
                 onChange={(e)=>setPrice(e.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <label> Brand</label>
                 <input
                 type="text"
@@ -138,7 +138,7 @@ function ItemForm () {
                 onChange={(e)=>setBrand(e.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group"> 
                 <label> Condition </label>
                 <select name="selectedCondition"
                   value={condition}
@@ -151,7 +151,7 @@ function ItemForm () {
                 </select>
             </div>
             
-            <div>
+            <div className="form-group">
                 <label> Wearer</label>
                 <select name="selectedWearer"
                 value={wearer}
@@ -161,7 +161,7 @@ function ItemForm () {
                     
                 </select>
             </div>
-            <div>
+            <div className="form-group">
                 <label> Photo </label>
                 <input
                 type = "text"
