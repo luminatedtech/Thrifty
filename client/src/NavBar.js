@@ -5,8 +5,6 @@ import { LoginContext } from './App'
 import { TypeContext } from './App'
 import { UserInfoContext } from './App'
 import { useUserContext } from './Context/UserContext'
-
-
 function NavBar ({user,typeOfUser,userInfo}) {
 
 const {cart,LOGOUT_USER} = useUserContext()
@@ -51,9 +49,8 @@ const {setUser} = useContext(LoginContext)
     return (
     <header>
         <div className="logo">
-            <Link to ="/home" >
-                <img alt="homeLogo" className="navBarLogo" src=""/>
-                <p>Thirfty</p>
+            <Link to ="/" >
+                <img alt="homeLogo" className="navBarLogo" src="thrifty-logo.png"/>
             </Link>
         </div>
         <div className="navbar">
@@ -64,13 +61,6 @@ const {setUser} = useContext(LoginContext)
             </button>
             </Link>
         }
-            <Link to='/mensListing'>
-            <button className="signupButton">Mensware</button>
-            </Link>
-            <Link to='/womensListing'>
-            <button className="signupButton">Womensware</button>
-            </Link>
-            
             { typeOfUser === "customer" &&
             <Link to='/shoppingCart'>
                 <button> Shopping Cart {cart.length} </button>

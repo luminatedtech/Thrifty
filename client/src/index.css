@@ -175,7 +175,7 @@ select option:checked {
 .itemFormContainer {
   position: absolute;
   margin-top: 200px;
-
+  width: 100%;
 }
 
 .deleteButton {
@@ -326,11 +326,8 @@ select option:checked {
   font-size: 16px;
 }
 
-/* .form_container, .item-edit-form-container form button.addReviewsButton:hover {
-  background-color: #0056b3;
-} */
 
-.form_container, .item-edit-form-container, .item-form-container {
+.form_container, .item-edit-form-container  {
   color: rgb(21, 19, 19);
   margin-top: 10px;
   padding-left: 20px;
@@ -385,9 +382,9 @@ textarea {
   position: absolute;
   height: 100%;
   top: 150px;
-  left: 500px;
+  left: 150px;
   bottom: 0;
-  width: 300px; 
+  width: 80%; 
   background-color: #f2f2f2; 
   padding: 20px;
   border-radius: 10px;
@@ -417,3 +414,123 @@ input {
 }
 
 
+.navBarLogo {
+  width: 120px; /* Set the desired width */
+  height: 75px; /* Set the desired height */
+  object-fit: contain; /* This property will maintain aspect ratio and fit the image within the specified width and height */
+  /* Add any other styling for the logo image here */
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column; /* Arrange children elements in a column */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.buttonContainer {
+  position: absolute;
+  bottom: 200px; /* Set the distance from the bottom of the container */
+  left: 50%;
+  transform: translateX(-50%); /* Center the buttons horizontally */
+  display: flex;
+}
+
+.listingButton {
+  font-family: 'Roboto', sans-serif;
+  margin: 0 10px; /* Add some spacing between the buttons */
+  padding: 15px 30px; /* Increase the padding for bigger buttons */
+  border: 2px solid #fff; /* Increase the border thickness */
+  background-color: transparent; /* Make the background transparent */
+  color: #fff; /* Set the text color to white */
+  font-family: "Roboto", sans-serif; /* Set the font to Roboto */
+  font-size: 22px; /* Increase the font size */
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.listingButton:hover {
+  background-color: #ccc;
+  color: #fff;
+  border-color: #ccc;
+}
+
+.homeContainer {
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+.gifBackground {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  
+}
+
+
+.gifContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://giphy.com/embed/efymon4XkFtYUAjUM0");
+  background-size: cover;
+  z-index: -1;
+}
+
+.gifContainer iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.homeHeader {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 50px;
+      display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-transform: uppercase;
+}
+
+/* Styling for the .statement */
+.statement {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  color: whitesmoke;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+
+.sellerDashboardContainer {
+  text-align: center; /* Center the content horizontally */
+ 
+}
+.sellerdashBoardButtonContainer{
+   top: 200px;
+}
+.sellerdashBoardButtonContainer button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Add a background color to the button */
+  color: #fff; /* Set the text color to white */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sellerdashBoardButtonContainer button:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}

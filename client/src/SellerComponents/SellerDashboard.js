@@ -6,12 +6,15 @@ function SellerDashboard ({user}) {
         if (user) {
             
             return (
-                <div>
-                <Link to = {`/itemForm/${user.id}`}>
-                    <button> Add an Item </button>
-                </Link>
+                <div className="sellerDashboardContainer">
                
                 {<SellerItemList user={user} userId ={user.id} />}
+                <div className="sellerdashBoardButtonContainer">
+                    <Link to = {`/itemForm/${user.id}`}>
+                    <button> Add an Item </button>
+                    </Link>
+                </div>
+                
                
                 
             </div>
