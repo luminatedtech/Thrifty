@@ -28,7 +28,7 @@ function handleSubmit(e) {
             r.json().then((user)=> setUser(user))
             setUserInfo(true)
             setTypeOfUser("customer")
-            navigate('/home')
+            navigate('/')
         }
         else {
             r.json().then((err)=> setErrors(err.errors))

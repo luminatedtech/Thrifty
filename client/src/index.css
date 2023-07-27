@@ -70,6 +70,7 @@ button:hover {
   transition: background .13s ease-in-out;
   min-width: 5rem;
   max-width: 6rem;
+  margin: 10px;
 }
 
 select {
@@ -90,6 +91,7 @@ select option:checked {
 }
 .signupButton {
   padding: .75rem 1rem .75rem 1rem;
+  margin: 10px;
   border-radius: 8px;
   width: 70%;
   height: 3rem;
@@ -113,7 +115,6 @@ select option:checked {
 
 
 .itemList {
-  height: 100%;
   width: 50%;
   min-width: 50rem;
   padding-top: 6rem;
@@ -318,12 +319,13 @@ select option:checked {
 }
 
 .form_container, .item-edit-form-container, .item-form-container form button.addReviewsButton {
-  color: #fff;
+  color: black;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  background-color: gray;
 }
 
 
@@ -391,7 +393,10 @@ textarea {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   z-index: 1;
 }
-
+.formTitle{
+  font-size: 36px;
+  font-weight: 100;
+}
 .sellerProfile {
   display: flex;
 }
@@ -430,10 +435,20 @@ input {
 }
 .buttonContainer {
   position: absolute;
-  bottom: 200px; /* Set the distance from the bottom of the container */
+  bottom: 70px; /* Set the distance from the bottom of the container */
   left: 50%;
   transform: translateX(-50%); /* Center the buttons horizontally */
   display: flex;
+}
+
+.totalCharge {
+  position: absolute;
+  bottom: 75px;
+  right: 200px;
+}
+.totalCharge p {
+  font-size: 30px;
+  font-weight: 200;
 }
 
 .listingButton {
@@ -533,4 +548,70 @@ input {
 
 .sellerdashBoardButtonContainer button:hover {
   background-color: #0056b3; /* Change the background color on hover */
+}
+
+.shoppingCartContainer {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+}
+
+.button {
+  background-color: #4CAF50; /* Set the background color */
+  color: white; /* Set the text color */
+  padding: 12px 24px; /* Add padding to the button */
+  border: none; /* Remove the border */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove any text decoration */
+  display: inline-block; /* Make the button a block-level element */
+  font-size: 16px; /* Set the font size */
+  border-radius: 4px; /* Add rounded corners */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  margin: 20px;
+}
+
+.shoppingCartButton, .sellerDashBoardButton {
+  background-color: #4CAF50; /* Set the background color */
+  color: white; /* Set the text color to white for good contrast */
+  padding: 10px 20px; /* Add padding to the button */
+  border: none; /* Remove the border */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove any text decoration */
+  display: inline-block; /* Make the button a block-level element */
+  font-size: 16px; /* Set the font size */
+  border-radius: 4px; 
+  cursor: pointer; 
+  margin: 10px;
+}
+
+/* Add a hover effect */
+.shoppingCartButton, .sellerDashBoardButton:hover {
+  background-color: #45a049; /* Change the background color on hover */
+}
+
+
+
+.reviewButton {
+  margin: 10px;
+  background-color: gray; /* Blue background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Add some padding around the text */
+  border: none; /* Remove the default button border */
+  border-radius: 5px; /* Add some border radius to round the corners */
+  font-size: 16px; /* Set the font size */
+  font-weight: bold; /* Add bold font-weight for better visibility */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  display: block; /* Change the display to block to take the full width */
+  margin: 0 auto; 
+  width: fit-content; 
+  max-width: 200px; 
+}
+.checkoutForm {
+  width: 80%;
+  left: 100px;
+  height: 80%;
+  position: absolute;
+  top: 200px;
 }

@@ -71,7 +71,7 @@ function ItemForm () {
     }
     return (
         <div className="item-form-container">
-        <h2 > Create Item </h2>
+        <h2 className="formTitle"> Create Item </h2>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <label> Name </label>
@@ -104,7 +104,7 @@ function ItemForm () {
                       />
                     </div>
                   ) : (
-                    // Render size select dropdown for other categories
+
                     <div className="form-group">
                       <label> Size </label>
                       <select

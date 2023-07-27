@@ -56,14 +56,14 @@ const {setUser} = useContext(LoginContext)
         <div className="navbar">
         { typeOfUser === "seller" && 
             <Link to="/sellerDashboard"> 
-            <button className='button' onClick={()=>console.log("i was clicked")}>
+            <button className='sellerDashBoardButton'>
                 Seller Dashboard
             </button>
             </Link>
         }
             { typeOfUser === "customer" &&
             <Link to='/shoppingCart'>
-                <button> Shopping Cart {cart.length} </button>
+                <button className='shoppingCartButton'> Shopping Cart {cart.length} </button>
             </Link>
             }
             <Link to='/signupForms'>

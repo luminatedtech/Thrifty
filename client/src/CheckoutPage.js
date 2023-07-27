@@ -18,11 +18,11 @@ const clearCartItems = () => {
     payload: [],
   });
 
-  // Clear cart items in local storage
+
   localStorage.setItem('cart', JSON.stringify([]));
 };
   useEffect(() => {
-    // Fetch the PaymentIntent client secret from your backend
+
     const fetchPaymentIntent = async () => {
       try {
         const response = await axios.post('/create_payment_intent', {
@@ -31,7 +31,7 @@ const clearCartItems = () => {
         setClientSecret(response.data.client_secret);
       } catch (error) {
         console.error('Error fetching PaymentIntent:', error);
-        // Handle the error appropriately (e.g., show an error message to the user)
+
       }
     };
 
@@ -42,18 +42,18 @@ const clearCartItems = () => {
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet
+
       return;
     }
 
-    // Collect the card details entered by the user
+
     const cardElement = elements.getElement(CardElement);
 
-    // Confirm the card payment using the client secret
+
     const result = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: cardElement,
-        // Add other billing details here if required
+
       },
     });
 
@@ -71,11 +71,6 @@ const clearCartItems = () => {
    
    
     <div className='checkoutForm'>
-      <h1>hi</h1>
-      <h1>hi</h1>
-      <h1>hi</h1>
-      <h1>hi</h1>
-      <h1>hi</h1>
       <h2>Checkout Page</h2>
       <form onSubmit={handleSubmit}>
         <div>

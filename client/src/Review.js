@@ -5,7 +5,7 @@ function Review ({comment,review,title,rating}) {
     const fullStars = Math.floor(rating);
   const halfStar = rating % 1 >= 0.5;
 
-  //
+
   const starsArray = [...Array(5)].map((_, index) => {
     const starValue = index + 1;
     if (starValue <= fullStars) {

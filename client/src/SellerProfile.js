@@ -24,21 +24,21 @@ return (
             <ListedItem  key={item.id} id={item.id} name={item.name} item={item} category={item.category} size={item.size} price={item.price} condition={item.condition} seller={item.seller} wearer={item.wearer} photo={item.photo} brand={item.brand}  index={i}/>
         ))}
         </div>
-    { showReviews ? (
+   <div className="buttonContainer">
+   { showReviews ? (
                 <>
                     {<ReviewList/>}
-                    <button className="button" onClick={()=>setShowReviews(false)}> Close </button>
+                    <button className="reviewButton" onClick={()=>setShowReviews(false)}> Close </button>
                 </>
             ) : (
                 <>
-                    <button onClick={()=>setShowReviews(true)} className="signUpButton"> View Reviews</button>
+                    <button onClick={()=>setShowReviews(true)} className="reviewButton"> View Reviews</button>
                 </>
             )
 
             }
-     <div>
-       
-     </div>
+   </div>
+    
     </div>
 )
 }

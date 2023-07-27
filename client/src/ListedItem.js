@@ -8,7 +8,7 @@ function ListedItem ({typeOfUser, userInfo,item,category,price,condition,wearer,
   
 
   console.log("cart",cart)
-  const [isInCart] = useState(false)
+  const [isInCart,setIsInCart] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
   const checkUserAndCart = (item) => { 
     let flag = true
@@ -28,7 +28,7 @@ function ListedItem ({typeOfUser, userInfo,item,category,price,condition,wearer,
   },[cart,item])
   function addItemtoCart (item) {
     UPDATE_CART_ITEMS(item)
-   
+    setIsInCart(true)
     console.log(item)
   }
  
