@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   post '/create_payment_intent', to: 'payments#create_payment_intent'
   get '/sellers/:seller_id/items', to: 'items#index'
   get '/items/allen', to: "items#allen"
+  
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
