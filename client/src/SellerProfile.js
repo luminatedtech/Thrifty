@@ -1,4 +1,4 @@
-import React,{useContext,useState} from "react";
+import React,{useContext,useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { ItemContext } from "./Context/ItemContext";
@@ -9,7 +9,14 @@ function SellerProfile () {
 const [showReviews,setShowReviews] = useState(false)
 const sellerId = useParams()
 const {items} = useContext(ItemContext)
+const [sellerReviews,setSellerReviews] = useState([])
 const sellerItems = items.filter((item)=>item.seller_id == sellerId.seller_id)
+useEffect(()=> {
+    fetch(`/sellers/${sellerId.seller_id}/reviews`)
+    .then((r)=> r.json())
+    .then((reviews)=> setSellerReviews(reviews))
+},[])
+console.log(sellerId.seller_id)
 return (
     <div className="sellerProfile">
         
@@ -21,7 +28,7 @@ return (
    <div className="buttonContainer">
    { showReviews ? (
                 <>
-                    {<ReviewList/>}
+                    {<ReviewList sellerReviews={sellerReviews}/>}
                     <button className="reviewButton" onClick={()=>setShowReviews(false)}> Close </button>
                 </>
             ) : (

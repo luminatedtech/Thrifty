@@ -206,18 +206,18 @@ select option:checked {
   max-width: 20rem;
 }
 
-.reviewFormContainer {
-  position: absolute;
-  margin-top: 200px;
-
-}
 .reviewFormContainer input {
   display:flex;
-  width: 100%;
   padding: 0.5rem 0.8rem 0.5rem 0.8rem;
   border: 0;
   border-radius: 5px;
 } 
+
+.reviewFormContainer {
+  position: absolute;
+  margin-top: 200px;
+  width: 100%;
+}
 
 .reviewForm {
   display: flex;

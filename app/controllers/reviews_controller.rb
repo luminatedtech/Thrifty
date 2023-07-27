@@ -13,11 +13,12 @@ class ReviewsController < ApplicationController
         if params[:seller_id]
             seller = Seller.find_by(id: params[:seller_id])
             reviews = seller.reviews
-            render json: reviews
+            render json: reviews, include: :customer
         else 
             reviews = Review.all
+            render json: reviews, include: :customer
         end 
-        render json: reviews, include: :customer
+       
     end 
     def destroy
         review = Review.find_by(id: params[:id])

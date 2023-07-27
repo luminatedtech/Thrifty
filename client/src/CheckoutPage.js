@@ -3,9 +3,8 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useUserContext } from './Context/UserContext';
 function CheckoutPage() {
-  console.log("hello")
- 
-  const stripe = useStripe();
+
+  const stripe = useStripe(); 
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState('');
   const [paymentError, setPaymentError] = useState(null);
@@ -17,7 +16,7 @@ const clearCartItems = () => {
     type: 'EMPTY',
     payload: [],
   });
-
+const sum =  cart.reduce((a,v) =>  a = a + v.price , 0 )
 
   localStorage.setItem('cart', JSON.stringify([]));
 };

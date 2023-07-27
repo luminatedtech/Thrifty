@@ -33,10 +33,7 @@ function handleSubmit(e) {
             const newSellers = []
             r.json().then((review)=>{
             sellers.forEach((seller)=> {
-                console.log(seller.id)
-                console.log("review", review)
                 if (seller.id === review.seller_id){
-                console.log(seller)
                  const updatedReviews = [...seller.reviews,review]
                   seller.reviews = updatedReviews
                   
@@ -44,9 +41,12 @@ function handleSubmit(e) {
               
                 newSellers.push(seller)
     
+                
             })
-            setSellers(newSellers)
             setReviews([...reviews,review])
+            setSellers(newSellers)
+          
+            navigate('/')
             
 
         })
