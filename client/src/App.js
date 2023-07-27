@@ -29,8 +29,6 @@ function App() {
   const [user, setUser] = useState(null)
   const [userInfo, setUserInfo] = useState(false)
   const [typeOfUser, setTypeOfUser] = useState("")
-  
- 
 
   useEffect(() => {
     fetch('/me').then((r)=> {
