@@ -9,14 +9,13 @@ function CheckoutPage() {
   const [clientSecret, setClientSecret] = useState('');
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
-  console.log(stripe)
-const {cart,dispatch,SUCESSFUL_PAYMENT} = useUserContext()
+const {cart,dispatch} = useUserContext()
 const clearCartItems = () => {
   dispatch({
     type: 'EMPTY',
     payload: [],
   });
-const sum =  cart.reduce((a,v) =>  a = a + v.price , 0 )
+
 
   localStorage.setItem('cart', JSON.stringify([]));
 };

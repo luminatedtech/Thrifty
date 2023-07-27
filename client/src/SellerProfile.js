@@ -10,13 +10,12 @@ const [showReviews,setShowReviews] = useState(false)
 const sellerId = useParams()
 const {items} = useContext(ItemContext)
 const [sellerReviews,setSellerReviews] = useState([])
-const sellerItems = items.filter((item)=>item.seller_id == sellerId.seller_id)
+const sellerItems = items.filter((item)=>item.seller_id === sellerId.seller_id)
 useEffect(()=> {
     fetch(`/sellers/${sellerId.seller_id}/reviews`)
     .then((r)=> r.json())
     .then((reviews)=> setSellerReviews(reviews))
-},[])
-console.log(sellerId.seller_id)
+},[sellerId.seller_id])
 return (
     <div className="sellerProfile">
         

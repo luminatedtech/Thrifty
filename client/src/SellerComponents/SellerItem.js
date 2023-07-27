@@ -1,8 +1,7 @@
-import React, {useState,useContext} from "react";
+import React, {useState} from "react";
 import ItemEditForm from "./ItemEditForm";
-import { SellerContext } from "../Context/SellerContext";
-function SellerItem ({user,userId,item,setSellerItems}) {
-    console.log(user)
+
+function SellerItem ({userId,item,setSellerItems}) {
     const  {
       name,
       id,
@@ -17,7 +16,7 @@ function SellerItem ({user,userId,item,setSellerItems}) {
   
     const [errors,setErrors] = useState([])
     const [showEdit, setShowEdit] = useState(true)
-    const {sellers,setSellers} = useContext(SellerContext)
+    
     function onDeleteItem (){
       fetch(`/items/${id}`,{
         method: "DELETE"
@@ -67,16 +66,17 @@ function SellerItem ({user,userId,item,setSellerItems}) {
               <button className="deleteButton" onClick={onDeleteItem}>
                 Delete 
               </button>
-              {/* {errors.length > 0 && (
-                    <ul style={{ color: "red" }}>
-                    {errors.map((error) => (
-                     <li key={error}>{error}</li>
-                    ))}
-                  </ul>
-                )} */}
+             
             </div>
          
         )}
+         {errors.length > 0 && (
+                           <ul style={{ color: "red" }}>
+                           {errors.map((error) => (
+                            <li key={error}>{error}</li>
+                           ))}
+                         </ul>
+                       )}
     
     </>
     )

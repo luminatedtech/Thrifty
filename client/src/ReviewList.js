@@ -1,6 +1,4 @@
-import React,{useContext,useEffect,useState} from "react";
-import { ReviewContext } from "./Context/ReviewContext";
-import {useParams} from "react-router-dom"
+import React from "react";
 import Review from "./Review";
 function ReviewList ({sellerReviews}) {
     

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useUserContext } from "./Context/UserContext";
 import ShoppingCartItem from "./ShoppingCartItem";
