@@ -50,7 +50,7 @@ const {setUser} = useContext(LoginContext)
     <header>
         <div className="logo">
             <Link to ="/" >
-                <img alt="homeLogo" className="navBarLogo" src="thrifty-logo.png"/>
+                <img alt="homeLogo" className="navBarLogo" src='thrifty-logo.png'/>
             </Link>
         </div>
         <div className="navbar">
